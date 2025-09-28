@@ -185,7 +185,10 @@ Iterator* Dogorithm::createIterator() {
 
 // ============= USER CLASS IMPLEMENTATIONS =============
 
-User::User(const std::string& userName) : name(userName), currentState(new Online()) {
+User::User(const std::string& userName, bool admin) : name(userName), isAdmin(admin), currentState(new Online()) {
+    if (isAdmin) {
+        std::cout << userName << " created as Admin user!" << std::endl;
+    }
 }
 
 User::~User() {
@@ -249,7 +252,7 @@ std::vector<ChatRoom*>& User::getChatRooms() {
 }
 
 // User1 Implementation
-User1::User1(const std::string& userName) : User(userName) {
+User1::User1(const std::string& userName) : User(userName, false) {
 }
 
 void User1::send(const std::string& message, ChatRoom* room) {
@@ -270,7 +273,7 @@ void User1::receive(const std::string& message, User* fromUser, ChatRoom* room) 
 }
 
 // User2 Implementation
-User2::User2(const std::string& userName) : User(userName) {
+User2::User2(const std::string& userName) : User(userName, false) {
 }
 
 void User2::send(const std::string& message, ChatRoom* room) {
@@ -291,7 +294,7 @@ void User2::receive(const std::string& message, User* fromUser, ChatRoom* room) 
 }
 
 // User3 Implementation
-User3::User3(const std::string& userName) : User(userName) {
+User3::User3(const std::string& userName) : User(userName, false) {
 }
 
 void User3::send(const std::string& message, ChatRoom* room) {
@@ -309,5 +312,36 @@ void User3::send(const std::string& message, ChatRoom* room) {
 void User3::receive(const std::string& message, User* fromUser, ChatRoom* room) {
     if (currentState && fromUser) {
         currentState->handleMessage(this, message);
+    }
+}
+
+// ------------------------- ADMIN ---------------------
+
+void User::setAdmin(bool admin) {
+    isAdmin = admin;
+    if (admin) {
+        std::cout << name << " has been granted admin privileges!" << std::endl;
+    }
+}
+
+bool User::getAdmin() const {
+    return isAdmin;
+}
+
+ChatRoom* User::createChatRoom(const std::string& roomType) {
+    if (!isAdmin) {
+        std::cout << name << " does not have permission to create chat rooms!" << std::endl;
+        return nullptr;
+    }
+    
+    std::cout << "Chat room created by admin" << std::endl;
+    
+    if (roomType == "CtrlCat") {
+        return new CtrlCat();
+    } else if (roomType == "Dogorithm") {
+        return new Dogorithm();
+    } else {
+        std::cout << "Unknown room type: " << roomType << ". Creating default CtrlCat room." << std::endl;
+        return new CtrlCat();
     }
 }
