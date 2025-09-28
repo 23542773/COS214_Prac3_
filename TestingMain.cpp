@@ -271,7 +271,291 @@ void testIntegratedScenario() {
     
     std::cout << "Integrated Scenario Test Completed!\n" << std::endl;
 }
+void testEdgeCases() {
+    std::cout << "\n=== TESTING EDGE CASES ===" << std::endl;
+    
+    std::cout << "\n--- Testing Iterator Edge Cases ---" << std::endl;
+    
+    // Test iterator with empty history
+    CtrlCat* emptyRoom = new CtrlCat();
+    Iterator* emptyIterator = emptyRoom->createIterator();
+    
+    std::cout << "Empty iterator hasNext: " << (emptyIterator->hasNext() ? "Yes" : "No") << std::endl;
+    std::cout << "Empty iterator next: '" << emptyIterator->next() << "'" << std::endl;
+    emptyIterator->reset();
+    std::cout << "After reset on empty iterator: '" << emptyIterator->next() << "'" << std::endl;
+    
+    delete emptyIterator;
+    delete emptyRoom;
+    
+    std::cout << "\n--- Testing Command Edge Cases ---" << std::endl;
+    
+    // Test commands with null parameters
+    Command* nullRoomCmd = new SendMessageCommand(nullptr, nullptr, "test");
+    Command* nullUserCmd = new LogMessageCommand(nullptr, nullptr, "test");
+    
+    std::cout << "Executing command with null room/user:" << std::endl;
+    nullRoomCmd->execute();
+    nullUserCmd->execute();
+    
+    delete nullRoomCmd;
+    delete nullUserCmd;
+    
+    std::cout << "\n--- Testing ChatRoom Edge Cases ---" << std::endl;
+    
+    Dogorithm* testRoom = new Dogorithm();
+    User1* testUser = new User1("EdgeTester");
+    
+    // Test registering same user twice
+    testRoom->registerUser(testUser);
+    testRoom->registerUser(testUser); // Should not add duplicate
+    
+    // Test removing user not in room
+    User2* notInRoom = new User2("NotInRoom");
+    testRoom->removeUser(notInRoom);
+    
+    // Test removing null user
+    testRoom->removeUser(nullptr);
+    
+    delete testUser;
+    delete notInRoom;
+    delete testRoom;
+    
+    std::cout << "\n--- Testing User Edge Cases ---" << std::endl;
+    
+    User1* edgeUser = new User1("EdgeUser");
+    
+    // Test sending to null room
+    edgeUser->send("Message to nowhere", nullptr);
+    
+    // Test adding null command
+    edgeUser->addCommand(nullptr);
+    edgeUser->executeAll(); // Should handle gracefully
+    
+    // Test joining null room
+    edgeUser->joinChatRoom(nullptr);
+    
+    // Test leaving room not joined
+    CtrlCat* notJoinedRoom = new CtrlCat();
+    edgeUser->leaveChatRoom(notJoinedRoom);
+    
+    // Test leaving null room
+    edgeUser->leaveChatRoom(nullptr);
+    
+    delete edgeUser;
+    delete notJoinedRoom;
+    
+    std::cout << "\n--- Testing State Edge Cases ---" << std::endl;
+    
+    User3* stateUser = new User3("StateUser");
+    
+    // Test receive with null fromUser
+    stateUser->receive("test message", nullptr, nullptr);
+    
+    // Test setting null state (dangerous but should be handled)
+    UserState* currentState = stateUser->getState();
+    stateUser->setState(nullptr);
+    
+    // Try to handle message with null state
+    stateUser->receive("message with null state", stateUser, nullptr);
+    
+    // Restore a valid state to prevent crash on deletion
+    stateUser->setState(new Online());
+    
+    delete stateUser;
+    
+    std::cout << "Edge Cases Test Completed!\n" << std::endl;
+}
 
+void testAdminEdgeCases() {
+    std::cout << "\n=== TESTING ADMIN EDGE CASES ===" << std::endl;
+    
+    User1* user = new User1("TestUser");
+    
+    // Test admin functions without admin privileges
+    std::cout << "Non-admin attempting room creation:" << std::endl;
+    ChatRoom* shouldFail = user->createChatRoom("ShouldFail");
+    assert(shouldFail == nullptr);
+    
+    // Test setting admin multiple times
+    user->setAdmin(true);
+    user->setAdmin(true); // Should handle gracefully
+    user->setAdmin(false);
+    user->setAdmin(true);
+    
+    // Test creating room with empty string
+    ChatRoom* emptyNameRoom = user->createChatRoom("");
+    assert(emptyNameRoom != nullptr);
+    
+    // Test creating room with special characters
+    ChatRoom* specialRoom = user->createChatRoom("Room@#$%^&*()");
+    assert(specialRoom != nullptr);
+    
+    delete user;
+    delete emptyNameRoom;
+    delete specialRoom;
+    
+    std::cout << "Admin Edge Cases Test Completed!\n" << std::endl;
+}
+
+void testCustomChatRoomEdgeCases() {
+    std::cout << "\n=== TESTING CUSTOM CHATROOM EDGE CASES ===" << std::endl;
+    
+    // Test custom room with empty name
+    CustomChatRoom* emptyNameRoom = new CustomChatRoom("");
+    std::cout << "Empty name room name: '" << emptyNameRoom->getRoomName() << "'" << std::endl;
+    
+    // Test custom room operations
+    User1* user1 = new User1("User1");
+    User2* user2 = new User2("User2");
+    
+    // Test registering null user
+    emptyNameRoom->registerUser(nullptr);
+    
+    // Test normal operations
+    emptyNameRoom->registerUser(user1);
+    emptyNameRoom->registerUser(user2);
+    
+    // Test duplicate registration
+    emptyNameRoom->registerUser(user1);
+    
+    user1->send("Test message in empty-named room", emptyNameRoom);
+    
+    // Test iterator on custom room
+    Iterator* customIterator = emptyNameRoom->createIterator();
+    while (customIterator->hasNext()) {
+        std::cout << "Custom room message: " << customIterator->next() << std::endl;
+    }
+    
+    delete customIterator;
+    delete user1;
+    delete user2;
+    delete emptyNameRoom;
+    
+    std::cout << "Custom ChatRoom Edge Cases Test Completed!\n" << std::endl;
+}
+
+void testStateTransitionEdgeCases() {
+    std::cout << "\n=== TESTING STATE TRANSITION EDGE CASES ===" << std::endl;
+    
+    User1* user = new User1("StateTestUser");
+    
+    // Test rapid state changes
+    UserState* online1 = new Online();
+    UserState* offline1 = new Offline();
+    UserState* busy1 = new Busy();
+    UserState* online2 = new Online();
+    
+    user->setState(online1);
+    user->getState()->handleMessage(user, "Message 1");
+    
+    user->setState(offline1);
+    user->getState()->handleMessage(user, "Message 2");
+    
+    user->setState(busy1);
+    user->getState()->handleMessage(user, "Message 3");
+    
+    user->setState(online2);
+    user->getState()->handleMessage(user, "Message 4");
+    
+    // Test state change to same state type
+    UserState* anotherOnline = new Online();
+    user->setState(anotherOnline);
+    
+    delete user;
+    
+    std::cout << "State Transition Edge Cases Test Completed!\n" << std::endl;
+}
+
+void testMemoryManagement() {
+    std::cout << "\n=== TESTING MEMORY MANAGEMENT ===" << std::endl;
+    
+    // Test proper cleanup of commands
+    User1* user = new User1("MemoryTestUser");
+    CtrlCat* room = new CtrlCat();
+    
+    user->joinChatRoom(room);
+    
+    // Add multiple commands without executing
+    user->addCommand(new SendMessageCommand(room, user, "Cmd1"));
+    user->addCommand(new LogMessageCommand(room, user, "Cmd1"));
+    user->addCommand(new SendMessageCommand(room, user, "Cmd2"));
+    user->addCommand(new LogMessageCommand(room, user, "Cmd2"));
+    
+    // Commands should be cleaned up when user is deleted
+    delete user;
+    delete room;
+    
+    std::cout << "Memory Management Test Completed!\n" << std::endl;
+}
+
+void testComplexScenario() {
+    std::cout << "\n=== TESTING COMPLEX SCENARIO ===" << std::endl;
+    
+    // Create admin
+    User1* admin = new User1("ComplexAdmin");
+    admin->setAdmin(true);
+    
+    // Create multiple custom rooms
+    ChatRoom* room1 = admin->createChatRoom("ComplexRoom1");
+    ChatRoom* room2 = admin->createChatRoom("ComplexRoom2");
+    
+    // Create users with different states
+    User1* user1 = new User1("ComplexUser1");
+    User2* user2 = new User2("ComplexUser2");
+    User3* user3 = new User3("ComplexUser3");
+    
+    // Set different initial states
+    user2->setState(new Busy());
+    user3->setState(new Offline());
+    
+    // Complex room membership
+    user1->joinChatRoom(room1);
+    user1->joinChatRoom(room2);
+    user2->joinChatRoom(room1);
+    user3->joinChatRoom(room2);
+    admin->joinChatRoom(room1);
+    admin->joinChatRoom(room2);
+    
+    // Messages with state interactions
+    user1->send("Message from online user", room1);
+    user2->send("Message from busy user", room1);
+    user3->send("Message from offline user", room2);
+    
+    // Change states during conversation
+    user2->setState(new Online());
+    user3->setState(new Busy());
+    
+    user1->send("Second round messages", room1);
+    user2->send("Now I'm online", room1);
+    user3->send("Now I'm busy", room2);
+    
+    // Test chat history across rooms
+    Iterator* iter1 = room1->createIterator();
+    Iterator* iter2 = room2->createIterator();
+    
+    std::cout << "Room1 final history:" << std::endl;
+    while (iter1->hasNext()) {
+        std::cout << "  " << iter1->next() << std::endl;
+    }
+    
+    std::cout << "Room2 final history:" << std::endl;
+    while (iter2->hasNext()) {
+        std::cout << "  " << iter2->next() << std::endl;
+    }
+    
+    // Cleanup
+    delete iter1;
+    delete iter2;
+    delete admin;
+    delete user1;
+    delete user2;
+    delete user3;
+    delete room1;
+    delete room2;
+    
+    std::cout << "Complex Scenario Test Completed!\n" << std::endl;
+}
 int main() {
     std::cout << "========================================" << std::endl;
     std::cout << "    PETSPACE DESIGN PATTERNS TESTING   " << std::endl;
@@ -288,6 +572,14 @@ int main() {
     
     // Test integrated scenario
     testIntegratedScenario();
+
+    //test edge case
+    testEdgeCases();
+    testAdminEdgeCases();
+    testCustomChatRoomEdgeCases();
+    testStateTransitionEdgeCases();
+    testMemoryManagement();
+    testComplexScenario();
     
     std::cout << "========================================" << std::endl;
     std::cout << "         ALL TESTS COMPLETED!          " << std::endl;
@@ -295,3 +587,4 @@ int main() {
     
     return 0;
 }
+
