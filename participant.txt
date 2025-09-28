@@ -25,3 +25,6 @@ State-UserState
 ConcreteState- Online,Offline,Busy
 Context- Users
 client-
+
+
+1user can be in multiple chatroom
