@@ -175,4 +175,19 @@ public:
     void receive(const std::string& message, User* fromUser, ChatRoom* room) override;
 };
 
+// ============= extra : CustomChatRoom CLASSES =============
+
+class CustomChatRoom : public ChatRoom {
+private:
+    std::string roomName;
+    
+public:
+    CustomChatRoom(const std::string& name);
+    void registerUser(User* user) override;
+    void removeUser(User* user) override;
+    void sendMessage(const std::string& message, User* fromUser) override;
+    void saveMessage(const std::string& message, User* fromUser) override;
+    Iterator* createIterator() override;
+    std::string getRoomName() const;
+};
 #endif // PETSPACE_H

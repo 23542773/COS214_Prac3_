@@ -315,7 +315,7 @@ void User3::receive(const std::string& message, User* fromUser, ChatRoom* room) 
     }
 }
 
-// ------------------------- ADMIN ---------------------
+// ============= ADMIN IMPLEMENTATIONS =============
 
 void User::setAdmin(bool admin) {
     isAdmin = admin;
@@ -336,12 +336,48 @@ ChatRoom* User::createChatRoom(const std::string& roomType) {
     
     std::cout << "Chat room created by admin" << std::endl;
     
-    if (roomType == "CtrlCat") {
-        return new CtrlCat();
-    } else if (roomType == "Dogorithm") {
-        return new Dogorithm();
-    } else {
-        std::cout << "Unknown room type: " << roomType << ". Creating default CtrlCat room." << std::endl;
-        return new CtrlCat();
+    // Create a custom room with any name
+    return new CustomChatRoom(roomType);
+}
+
+// ============= Custom CLASS IMPLEMENTATIONS =============
+CustomChatRoom::CustomChatRoom(const std::string& name) : roomName(name) {
+}
+
+void CustomChatRoom::registerUser(User* user) {
+    if (user && std::find(users.begin(), users.end(), user) == users.end()) {
+        users.push_back(user);
+        std::cout << user->getName() << " joined " << roomName << " room!" << std::endl;
     }
+}
+
+void CustomChatRoom::removeUser(User* user) {
+    auto it = std::find(users.begin(), users.end(), user);
+    if (it != users.end()) {
+        users.erase(it);
+        std::cout << user->getName() << " left " << roomName << " room!" << std::endl;
+    }
+}
+
+void CustomChatRoom::sendMessage(const std::string& message, User* fromUser) {
+    std::cout << "[" << roomName << "] " << fromUser->getName() << ": " << message << std::endl;
+    for (User* user : users) {
+        if (user != fromUser) {
+            user->receive(message, fromUser, this);
+        }
+    }
+}
+
+void CustomChatRoom::saveMessage(const std::string& message, User* fromUser) {
+    std::string fullMessage = fromUser->getName() + ": " + message;
+    chatHistory.push_back(fullMessage);
+    std::cout << "[" << roomName << "] Message saved to history: " << fullMessage << std::endl;
+}
+
+Iterator* CustomChatRoom::createIterator() {
+    return new ChatHistoryIterator(&chatHistory);
+}
+
+std::string CustomChatRoom::getRoomName() const {
+    return roomName;
 }
