@@ -1,0 +1,87 @@
+\hypertarget{classCommand}{}\doxysection{Command Class Reference}
+\label{classCommand}\index{Command@{Command}}
+
+
+{\ttfamily \#include $<$Pet\+Space.\+h$>$}
+
+
+
+Inheritance diagram for Command\+:
+% FIG 0
+
+
+Collaboration diagram for Command\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCommand_aea62c488b914842c63b67ef593dade27}{Command}} (\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$room, \mbox{\hyperlink{classUser}{User}} $\ast$user, const std\+::string \&msg)
+\item 
+virtual \mbox{\hyperlink{classCommand_aa545a53d35818f9efb936daf3fa16c61}{$\sim$\+Command}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classCommand_a6fd7d9bd8df8bfc881e4d6c7cd1878b7}{execute}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$ \mbox{\hyperlink{classCommand_a0e2628b5acc0a121147827396db2d6f1}{chat\+Room}}
+\item 
+\mbox{\hyperlink{classUser}{User}} $\ast$ \mbox{\hyperlink{classCommand_a9f5fb38008fd35b7dbb1ecb1b82b322a}{from\+User}}
+\item 
+std\+::string \mbox{\hyperlink{classCommand_aefb89941a5b2b0b0648cf7b98bb37762}{message}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCommand_aea62c488b914842c63b67ef593dade27}\label{classCommand_aea62c488b914842c63b67ef593dade27}} 
+\index{Command@{Command}!Command@{Command}}
+\index{Command@{Command}!Command@{Command}}
+\doxysubsubsection{\texorpdfstring{Command()}{Command()}}
+{\footnotesize\ttfamily Command\+::\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$}]{room,  }\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user,  }\item[{const std\+::string \&}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCommand_aa545a53d35818f9efb936daf3fa16c61}\label{classCommand_aa545a53d35818f9efb936daf3fa16c61}} 
+\index{Command@{Command}!````~Command@{$\sim$Command}}
+\index{````~Command@{$\sim$Command}!Command@{Command}}
+\doxysubsubsection{\texorpdfstring{$\sim$Command()}{~Command()}}
+{\footnotesize\ttfamily virtual Command\+::$\sim$\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCommand_a6fd7d9bd8df8bfc881e4d6c7cd1878b7}\label{classCommand_a6fd7d9bd8df8bfc881e4d6c7cd1878b7}} 
+\index{Command@{Command}!execute@{execute}}
+\index{execute@{execute}!Command@{Command}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily virtual void Command\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classLogMessageCommand_a1522ccb9ad6916f76ef6fe720ffbdb8c}{Log\+Message\+Command}}, and \mbox{\hyperlink{classSendMessageCommand_ae6261a5ef02ead22e13d01ea5fc10e76}{Send\+Message\+Command}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classCommand_a0e2628b5acc0a121147827396db2d6f1}\label{classCommand_a0e2628b5acc0a121147827396db2d6f1}} 
+\index{Command@{Command}!chatRoom@{chatRoom}}
+\index{chatRoom@{chatRoom}!Command@{Command}}
+\doxysubsubsection{\texorpdfstring{chatRoom}{chatRoom}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classChatRoom}{Chat\+Room}}$\ast$ Command\+::chat\+Room\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classCommand_a9f5fb38008fd35b7dbb1ecb1b82b322a}\label{classCommand_a9f5fb38008fd35b7dbb1ecb1b82b322a}} 
+\index{Command@{Command}!fromUser@{fromUser}}
+\index{fromUser@{fromUser}!Command@{Command}}
+\doxysubsubsection{\texorpdfstring{fromUser}{fromUser}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUser}{User}}$\ast$ Command\+::from\+User\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classCommand_aefb89941a5b2b0b0648cf7b98bb37762}\label{classCommand_aefb89941a5b2b0b0648cf7b98bb37762}} 
+\index{Command@{Command}!message@{message}}
+\index{message@{message}!Command@{Command}}
+\doxysubsubsection{\texorpdfstring{message}{message}}
+{\footnotesize\ttfamily std\+::string Command\+::message\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PetSpace_8h}{Pet\+Space.\+h}}\item 
+\mbox{\hyperlink{PetSpace_8cpp}{Pet\+Space.\+cpp}}\end{DoxyCompactItemize}

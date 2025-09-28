@@ -1,0 +1,62 @@
+\hypertarget{classBusy}{}\doxysection{Busy Class Reference}
+\label{classBusy}\index{Busy@{Busy}}
+
+
+{\ttfamily \#include $<$Pet\+Space.\+h$>$}
+
+
+
+Inheritance diagram for Busy\+:
+% FIG 0
+
+
+Collaboration diagram for Busy\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBusy_af57fc4ec5273103526e3ec3c2f470a9a}{handle\+Message}} (\mbox{\hyperlink{classUser}{User}} $\ast$user, const std\+::string \&message) override
+\item 
+void \mbox{\hyperlink{classBusy_a730a4f4aca2ead373776a44b581ac378}{change\+State}} (\mbox{\hyperlink{classUser}{User}} $\ast$user, \mbox{\hyperlink{classUserState}{User\+State}} $\ast$new\+State) override
+\item 
+std\+::string \mbox{\hyperlink{classBusy_a48e1f97767912a01036fcc248213a151}{get\+State\+Name}} () const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBusy_a730a4f4aca2ead373776a44b581ac378}\label{classBusy_a730a4f4aca2ead373776a44b581ac378}} 
+\index{Busy@{Busy}!changeState@{changeState}}
+\index{changeState@{changeState}!Busy@{Busy}}
+\doxysubsubsection{\texorpdfstring{changeState()}{changeState()}}
+{\footnotesize\ttfamily void Busy\+::change\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user,  }\item[{\mbox{\hyperlink{classUserState}{User\+State}} $\ast$}]{new\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classUserState_a1ce511f75a030bf8dd5c7830756a78d3}{User\+State}}.
+
+\mbox{\Hypertarget{classBusy_a48e1f97767912a01036fcc248213a151}\label{classBusy_a48e1f97767912a01036fcc248213a151}} 
+\index{Busy@{Busy}!getStateName@{getStateName}}
+\index{getStateName@{getStateName}!Busy@{Busy}}
+\doxysubsubsection{\texorpdfstring{getStateName()}{getStateName()}}
+{\footnotesize\ttfamily std\+::string Busy\+::get\+State\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classUserState_a3deea93340663964226a23015fa7e85e}{User\+State}}.
+
+\mbox{\Hypertarget{classBusy_af57fc4ec5273103526e3ec3c2f470a9a}\label{classBusy_af57fc4ec5273103526e3ec3c2f470a9a}} 
+\index{Busy@{Busy}!handleMessage@{handleMessage}}
+\index{handleMessage@{handleMessage}!Busy@{Busy}}
+\doxysubsubsection{\texorpdfstring{handleMessage()}{handleMessage()}}
+{\footnotesize\ttfamily void Busy\+::handle\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user,  }\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classUserState_a5764b40fb31d1edf2729300f03c99346}{User\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PetSpace_8h}{Pet\+Space.\+h}}\item 
+\mbox{\hyperlink{PetSpace_8cpp}{Pet\+Space.\+cpp}}\end{DoxyCompactItemize}
