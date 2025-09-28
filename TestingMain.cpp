@@ -5,38 +5,7 @@
 #include <iostream>
 #include <cassert>
 
-void testStatePattern() {
-    std::cout << "\n=== TESTING STATE PATTERN ===" << std::endl;
-    
-    // Create user and test initial state
-    User1* user = new User1("TestUser");
-    std::cout << "Initial state: " << user->getState()->getStateName() << std::endl;
-    
-    // Test Online state
-    std::cout << "\n--- Testing Online State ---" << std::endl;
-    user->getState()->handleMessage(user, "Hello while online");
-    
-    // Change to Offline state
-    std::cout << "\n--- Testing Offline State ---" << std::endl;
-    UserState* offlineState = new Offline();
-    user->getState()->changeState(user, offlineState);
-    user->getState()->handleMessage(user, "Hello while offline");
-    
-    // Change to Busy state
-    std::cout << "\n--- Testing Busy State ---" << std::endl;
-    UserState* busyState = new Busy();
-    user->getState()->changeState(user, busyState);
-    user->getState()->handleMessage(user, "Hello while busy");
-    
-    // Change back to Online
-    std::cout << "\n--- Changing back to Online ---" << std::endl;
-    UserState* onlineState = new Online();
-    user->getState()->changeState(user, onlineState);
-    user->getState()->handleMessage(user, "Hello online again");
-    
-    delete user;
-    std::cout << "State Pattern Test Completed!\n" << std::endl;
-}
+
 
 void testIteratorPattern() {
     std::cout << "\n=== TESTING ITERATOR PATTERN ===" << std::endl;
@@ -271,6 +240,7 @@ void testIntegratedScenario() {
     
     std::cout << "Integrated Scenario Test Completed!\n" << std::endl;
 }
+
 void testEdgeCases() {
     std::cout << "\n=== TESTING EDGE CASES ===" << std::endl;
     
@@ -556,13 +526,242 @@ void testComplexScenario() {
     
     std::cout << "Complex Scenario Test Completed!\n" << std::endl;
 }
+
+// NEW TESTS FOR 100% COVERAGE
+
+void testUncoveredCodePaths() {
+    std::cout << "\n=== TESTING UNCOVERED CODE PATHS ===" << std::endl;
+    
+    // Test ChatRoom base class methods
+    std::cout << "\n--- Testing ChatRoom Base Class ---" << std::endl;
+    CtrlCat* room = new CtrlCat();
+    User1* user = new User1("BaseClassTest");
+    
+    // Test getUsers() and getChatHistory() methods
+    std::vector<User*>& users = room->getUsers();
+    std::vector<std::string>& history = room->getChatHistory();
+    
+    std::cout << "Initial users count: " << users.size() << std::endl;
+    std::cout << "Initial history count: " << history.size() << std::endl;
+    
+    // Test with actual data
+    room->registerUser(user);
+    user->send("Test message", room);
+    
+    std::cout << "After operations - users count: " << users.size() << std::endl;
+    std::cout << "After operations - history count: " << history.size() << std::endl;
+    
+    delete user;
+    delete room;
+    
+    std::cout << "Uncovered Code Paths Test Completed!\n" << std::endl;
+}
+
+void testCommandConstructorEdgeCases() {
+    std::cout << "\n=== TESTING COMMAND CONSTRUCTOR EDGE CASES ===" << std::endl;
+    
+    // Test Command constructor with various scenarios
+    Dogorithm* room = new Dogorithm();
+    User1* user = new User1("CommandTestUser");
+    
+    // Test empty message
+    Command* emptyMsgCmd = new SendMessageCommand(room, user, "");
+    emptyMsgCmd->execute();
+    delete emptyMsgCmd;
+    
+    // Test very long message
+    std::string longMsg(1000, 'X');
+    Command* longMsgCmd = new LogMessageCommand(room, user, longMsg);
+    longMsgCmd->execute();
+    delete longMsgCmd;
+    
+    // Test special characters in message
+    Command* specialCharCmd = new SendMessageCommand(room, user, "Message with @#$%^&*()");
+    specialCharCmd->execute();
+    delete specialCharCmd;
+    
+    delete user;
+    delete room;
+    
+    std::cout << "Command Constructor Edge Cases Test Completed!\n" << std::endl;
+}
+
+void testUserClassComprehensive() {
+    std::cout << "\n=== TESTING USER CLASS COMPREHENSIVELY ===" << std::endl;
+    
+    // Test User class methods more thoroughly
+    User1* user = new User1("ComprehensiveUser");
+    CtrlCat* room1 = new CtrlCat();
+    Dogorithm* room2 = new Dogorithm();
+    
+    std::cout << "\n--- Testing User Properties ---" << std::endl;
+    std::cout << "User name: " << user->getName() << std::endl;
+    std::cout << "Initial admin status: " << (user->getAdmin() ? "Admin" : "Not Admin") << std::endl;
+    
+    std::cout << "\n--- Testing Chat Room Management ---" << std::endl;
+    // Test getChatRooms() when empty
+    std::vector<ChatRoom*>& emptyRooms = user->getChatRooms();
+    std::cout << "Chat rooms when empty: " << emptyRooms.size() << std::endl;
+    
+    // Test joining multiple rooms
+    user->joinChatRoom(room1);
+    user->joinChatRoom(room2);
+    
+    std::vector<ChatRoom*>& rooms = user->getChatRooms();
+    std::cout << "Chat rooms after joining: " << rooms.size() << std::endl;
+    
+    // Test leaving all rooms
+    user->leaveChatRoom(room1);
+    user->leaveChatRoom(room2);
+    
+    std::vector<ChatRoom*>& finalRooms = user->getChatRooms();
+    std::cout << "Chat rooms after leaving all: " << finalRooms.size() << std::endl;
+    
+    delete user;
+    delete room1;
+    delete room2;
+    
+    std::cout << "User Class Comprehensive Test Completed!\n" << std::endl;
+}
+
+void testStatePatternComprehensive() {
+    std::cout << "\n=== TESTING STATE PATTERN COMPREHENSIVELY ===" << std::endl;
+
+    // Test state pattern more thoroughly
+    User1* user = new User1("StatePatternUser");
+
+    std::cout << "\n--- Testing State Change Methods ---" << std::endl;
+
+    // Test getStateName for all states first
+    UserState* onlineState = new Online();
+    UserState* offlineState = new Offline();
+    UserState* busyState = new Busy();
+
+    std::cout << "Online state name: " << onlineState->getStateName() << std::endl;
+    std::cout << "Offline state name: " << offlineState->getStateName() << std::endl;
+    std::cout << "Busy state name: " << busyState->getStateName() << std::endl;
+
+    // Test handleMessage for each state
+    std::cout << "\n--- Testing State Message Handling ---" << std::endl;
+    user->setState(new Online());
+    user->getState()->handleMessage(user, "Message while online");
+
+    user->setState(new Offline());
+    user->getState()->handleMessage(user, "Message while offline");
+
+    user->setState(new Busy());
+    user->getState()->handleMessage(user, "Message while busy");
+
+    // Test changeState method - the user object manages state memory
+    std::cout << "\n--- Testing State Changes ---" << std::endl;
+    UserState* currentState = user->getState();
+    currentState->changeState(user, new Online());
+
+    currentState = user->getState();
+    currentState->changeState(user, new Offline());
+
+    currentState = user->getState();
+    currentState->changeState(user, new Busy());
+
+    // Clean up - user destructor will handle current state
+    delete user;
+    delete onlineState;
+    delete offlineState;
+    delete busyState;
+
+    std::cout << "State Pattern Comprehensive Test Completed!\n" << std::endl;
+}
+
+void testIteratorComprehensive() {
+    std::cout << "\n=== TESTING ITERATOR COMPREHENSIVELY ===" << std::endl;
+    
+    // Test iterator more thoroughly
+    Dogorithm* room = new Dogorithm();
+    User1* user = new User1("IteratorTestUser");
+    
+    room->registerUser(user);
+    
+    // Add multiple messages
+    for (int i = 0; i < 5; i++) {
+        user->send("Message " + std::to_string(i), room);
+    }
+    
+    std::cout << "\n--- Testing Multiple Iterator Operations ---" << std::endl;
+    Iterator* iter = room->createIterator();
+    
+    // Test hasNext and next in combination
+    int count = 0;
+    while (iter->hasNext()) {
+        std::string msg = iter->next();
+        std::cout << "Message " << ++count << ": " << msg << std::endl;
+    }
+    
+    std::cout << "Total messages iterated: " << count << std::endl;
+    
+    // Test multiple reset operations
+    iter->reset();
+    iter->reset();
+    iter->reset();
+    
+    // Test iteration after multiple resets
+    std::cout << "First message after multiple resets: " << iter->next() << std::endl;
+    
+    delete iter;
+    delete user;
+    delete room;
+    
+    std::cout << "Iterator Comprehensive Test Completed!\n" << std::endl;
+}
+
+void testCustomChatRoomComprehensive() {
+    std::cout << "\n=== TESTING CUSTOM CHATROOM COMPREHENSIVELY ===" << std::endl;
+    
+    // Test CustomChatRoom more thoroughly
+    CustomChatRoom* customRoom = new CustomChatRoom("TestCustomRoom");
+    
+    std::cout << "\n--- Testing Custom Room Properties ---" << std::endl;
+    std::cout << "Custom room name: " << customRoom->getRoomName() << std::endl;
+    
+    User1* user1 = new User1("CustomUser1");
+    User2* user2 = new User2("CustomUser2");
+    User3* user3 = new User3("CustomUser3");
+    
+    // Test comprehensive room operations
+    customRoom->registerUser(user1);
+    customRoom->registerUser(user2);
+    customRoom->registerUser(user3);
+    
+    // Test message sending to multiple users
+    user1->send("Hello everyone!", customRoom);
+    user2->send("Hi there!", customRoom);
+    user3->send("Greetings!", customRoom);
+    
+    // Test iterator functionality
+    Iterator* customIter = customRoom->createIterator();
+    std::cout << "\nCustom room history:" << std::endl;
+    while (customIter->hasNext()) {
+        std::cout << "  " << customIter->next() << std::endl;
+    }
+    
+    // Test user removal
+    customRoom->removeUser(user2);
+    user1->send("User2 left the room", customRoom);
+    
+    delete customIter;
+    delete user1;
+    delete user2;
+    delete user3;
+    delete customRoom;
+    
+    std::cout << "Custom ChatRoom Comprehensive Test Completed!\n" << std::endl;
+}
+
 int main() {
     std::cout << "========================================" << std::endl;
     std::cout << "    PETSPACE DESIGN PATTERNS TESTING   " << std::endl;
     std::cout << "========================================" << std::endl;
     
-    // Test each pattern individually
-    testStatePattern();
+    // Test each pattern individuall
     testIteratorPattern();
     testCommandPattern();
     testMediatorPattern();
@@ -573,7 +772,7 @@ int main() {
     // Test integrated scenario
     testIntegratedScenario();
 
-    //test edge case
+    // Test edge cases
     testEdgeCases();
     testAdminEdgeCases();
     testCustomChatRoomEdgeCases();
@@ -581,10 +780,17 @@ int main() {
     testMemoryManagement();
     testComplexScenario();
     
+    // NEW TESTS FOR 100% COVERAGE
+    testUncoveredCodePaths();
+    testCommandConstructorEdgeCases();
+    testUserClassComprehensive();
+    testStatePatternComprehensive();
+    testIteratorComprehensive();
+    testCustomChatRoomComprehensive();
+    
     std::cout << "========================================" << std::endl;
     std::cout << "         ALL TESTS COMPLETED!          " << std::endl;
     std::cout << "========================================" << std::endl;
     
     return 0;
 }
-

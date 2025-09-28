@@ -20,7 +20,8 @@ std::string Online::getStateName() const {
 
 // Offline State
 void Offline::handleMessage(User* user, const std::string& message) {
-    std::cout<<user->getName() << " [Offline] cannot receive messages. " <<std::endl;
+    (void)message; // Silence unused parameter warning
+    std::cout << user->getName() << " [Offline] cannot receive messages. " << std::endl;
 }
 
 void Offline::changeState(User* user, UserState* newState) {
