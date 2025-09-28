@@ -1,9 +1,9 @@
 Iterator participant
 
 Iterator - Iterator
-ChatHistoryIterator- Concrete Iterator
-ChatRoom - Aggregate
-CtrCat,Dogorithmn- Concrete Aggregate
+ Concrete Iterator-ChatHistoryIterator
+ Aggregate-ChatRoom
+ Concrete Aggregate - CtrCat,Dogorithmn
 
 Mediator participant
 
