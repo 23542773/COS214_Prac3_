@@ -1,0 +1,27 @@
+Iterator participant
+
+Iterator - Iterator
+ChatHistoryIterator- Concrete Iterator
+ChatRoom - Aggregate
+CtrCat,Dogorithmn- Concrete Aggregate
+
+Mediator participant
+
+Mediator-chatroom
+ConcreteMediator-CtrCat,Dogorithmn
+Colleague-users
+ConcreteColleague- user1,user2,user3
+
+Command participant
+
+Command- Command
+ConcreteCommand -sendMessageCommand,LogMessageCommand
+Invoker - Users
+Receiver-ChatRoom
+
+State participant
+
+State-UserState
+ConcreteState- Online,Offline,Busy
+Context- Users
+client-
