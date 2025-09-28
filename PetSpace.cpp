@@ -7,64 +7,73 @@
 
 // Online State
 void Online::handleMessage(User* user, const std::string& message) {
-    // TODO: Implement online message handling
+
+    std::cout<<user->getName() << " [Online] received: "<<message <<std::endl;
 }
 
 void Online::changeState(User* user, UserState* newState) {
-    // TODO: Implement state change from online
+
+    user->setState(newState);
+    std::cout<< user->getName() <<"'s state changed to "<<newState->getStateName()<< std::endl;
 }
 
 std::string Online::getStateName() const {
-    // TODO: Return state name
-    return "";
+    
+    return "Online";
 }
 
 // Offline State
 void Offline::handleMessage(User* user, const std::string& message) {
-    // TODO: Implement offline message handling
+    std::cout<<user->getName() << " [Offline] cannot receive messages. " <<std::endl;
 }
 
 void Offline::changeState(User* user, UserState* newState) {
-    // TODO: Implement state change from offline
+    user->setState(newState);
+    std::cout<< user->getName() <<"'s state changed to "<<newState->getStateName()<< std::endl;
 }
 
 std::string Offline::getStateName() const {
-    // TODO: Return state name
-    return "";
+    
+    return "Offline";
 }
 
 // Busy State
 void Busy::handleMessage(User* user, const std::string& message) {
-    // TODO: Implement busy message handling
+    std::cout<<user->getName() << " [Busy] unavailable. Message stored: " << message <<std::endl;
 }
 
 void Busy::changeState(User* user, UserState* newState) {
-    // TODO: Implement state change from busy
+    user->setState(newState);
+    std::cout<< user->getName() <<"'s state changed to "<<newState->getStateName()<< std::endl;
 }
 
 std::string Busy::getStateName() const {
-    // TODO: Return state name
-    return "";
+   
+    return "Busy";
 }
 
 // ============= ITERATOR PATTERN IMPLEMENTATIONS =============
 
-ChatHistoryIterator::ChatHistoryIterator(std::vector<std::string>* history) {
-    // TODO: Initialize iterator
-}
+ChatHistoryIterator::ChatHistoryIterator(std::vector<std::string>* history)
+    : chatHistory(history), currentIndex(0){}
 
 bool ChatHistoryIterator::hasNext() {
-    // TODO: Check if there are more elements
-    return false;
+    
+    return chatHistory && currentIndex < static_cast<int>(chatHistory->size());
 }
 
 std::string ChatHistoryIterator::next() {
-    // TODO: Return next element
-    return "";
+    
+    if (!hasNext())
+    {
+        return"";
+    }
+    
+    return (*chatHistory)[currentIndex++];
 }
 
 void ChatHistoryIterator::reset() {
-    // TODO: Reset iterator to beginning
+    currentIndex = 0;
 }
 
 // ============= COMMAND PATTERN IMPLEMENTATIONS =============
