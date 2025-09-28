@@ -1,4 +1,3 @@
-
 #include "PetSpace.h"
 #include <iostream>
 #include <algorithm>
@@ -7,18 +6,15 @@
 
 // Online State
 void Online::handleMessage(User* user, const std::string& message) {
-
     std::cout<<user->getName() << " [Online] received: "<<message <<std::endl;
 }
 
 void Online::changeState(User* user, UserState* newState) {
-
     user->setState(newState);
     std::cout<< user->getName() <<"'s state changed to "<<newState->getStateName()<< std::endl;
 }
 
 std::string Online::getStateName() const {
-    
     return "Online";
 }
 
@@ -33,7 +29,6 @@ void Offline::changeState(User* user, UserState* newState) {
 }
 
 std::string Offline::getStateName() const {
-    
     return "Offline";
 }
 
@@ -48,7 +43,6 @@ void Busy::changeState(User* user, UserState* newState) {
 }
 
 std::string Busy::getStateName() const {
-   
     return "Busy";
 }
 
@@ -58,17 +52,14 @@ ChatHistoryIterator::ChatHistoryIterator(std::vector<std::string>* history)
     : chatHistory(history), currentIndex(0){}
 
 bool ChatHistoryIterator::hasNext() {
-    
     return chatHistory && currentIndex < static_cast<int>(chatHistory->size());
 }
 
 std::string ChatHistoryIterator::next() {
-    
     if (!hasNext())
     {
         return"";
     }
-    
     return (*chatHistory)[currentIndex++];
 }
 
@@ -82,17 +73,16 @@ Command::Command(ChatRoom* room, User* user, const std::string& msg)
     : chatRoom(room), fromUser(user), message(msg) {
 }
 
+SendMessageCommand::SendMessageCommand(ChatRoom* room, User* user, const std::string& msg) 
+    : Command(room, user, msg) {
+}
+
 void SendMessageCommand::execute() {
     if (chatRoom && fromUser) {
         chatRoom->sendMessage(message, fromUser);
     }
 }
 
-void LogMessageCommand::execute() {
-    if (chatRoom && fromUser) {
-        chatRoom->saveMessage(message, fromUser);
-    }
-}
 LogMessageCommand::LogMessageCommand(ChatRoom* room, User* user, const std::string& msg) 
     : Command(room, user, msg) {
 }
@@ -185,7 +175,7 @@ Iterator* Dogorithm::createIterator() {
 
 // ============= USER CLASS IMPLEMENTATIONS =============
 
-User::User(const std::string& userName, bool admin) : name(userName), isAdmin(admin), currentState(new Online()) {
+User::User(const std::string& userName, bool admin) : name(userName), currentState(new Online()), isAdmin(admin) {
     if (isAdmin) {
         std::cout << userName << " created as Admin user!" << std::endl;
     }
@@ -266,7 +256,7 @@ void User1::send(const std::string& message, ChatRoom* room) {
     }
 }
 
-void User1::receive(const std::string& message, User* fromUser, ChatRoom* room) {
+void User1::receive(const std::string& message, User* fromUser, ChatRoom*) {
     if (currentState && fromUser) {
         currentState->handleMessage(this, message);
     }
@@ -287,7 +277,7 @@ void User2::send(const std::string& message, ChatRoom* room) {
     }
 }
 
-void User2::receive(const std::string& message, User* fromUser, ChatRoom* room) {
+void User2::receive(const std::string& message, User* fromUser, ChatRoom*) {
     if (currentState && fromUser) {
         currentState->handleMessage(this, message);
     }
@@ -308,8 +298,7 @@ void User3::send(const std::string& message, ChatRoom* room) {
     }
 }
 
-
-void User3::receive(const std::string& message, User* fromUser, ChatRoom* room) {
+void User3::receive(const std::string& message, User* fromUser, ChatRoom*) {
     if (currentState && fromUser) {
         currentState->handleMessage(this, message);
     }
