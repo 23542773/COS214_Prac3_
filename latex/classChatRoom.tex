@@ -1,0 +1,131 @@
+\hypertarget{classChatRoom}{}\doxysection{Chat\+Room Class Reference}
+\label{classChatRoom}\index{ChatRoom@{ChatRoom}}
+
+
+{\ttfamily \#include $<$Pet\+Space.\+h$>$}
+
+
+
+Inheritance diagram for Chat\+Room\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classChatRoom_a69f31b242d9c652f1d7cbecdd408a27a}{$\sim$\+Chat\+Room}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classChatRoom_ad7d4fe63622992ee74913a0c04c1b840}{register\+User}} (\mbox{\hyperlink{classUser}{User}} $\ast$user)=0
+\item 
+virtual void \mbox{\hyperlink{classChatRoom_a01c7ea1d26aefc886c0f8b2bc63ade28}{remove\+User}} (\mbox{\hyperlink{classUser}{User}} $\ast$user)=0
+\item 
+virtual void \mbox{\hyperlink{classChatRoom_a25a28b991d4b8aa3e2e81481d1690619}{send\+Message}} (const std\+::string \&message, \mbox{\hyperlink{classUser}{User}} $\ast$from\+User)=0
+\item 
+virtual void \mbox{\hyperlink{classChatRoom_aa96b9ab9402fa28611a6c3277b2a17fb}{save\+Message}} (const std\+::string \&message, \mbox{\hyperlink{classUser}{User}} $\ast$from\+User)=0
+\item 
+virtual \mbox{\hyperlink{classIterator}{Iterator}} $\ast$ \mbox{\hyperlink{classChatRoom_a69b77529a5bb7ffe78f41608ec4ea0a1}{create\+Iterator}} ()=0
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classUser}{User}} $\ast$ $>$ \& \mbox{\hyperlink{classChatRoom_ad9e0bfc8e871e670d8d824e3dee1e24e}{get\+Users}} ()
+\item 
+std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{classChatRoom_ae0067467d40d0e183b1fc1e7c2d9ee65}{get\+Chat\+History}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classUser}{User}} $\ast$ $>$ \mbox{\hyperlink{classChatRoom_a8ab528a7f3fbc7506e9bf1aec140ea48}{users}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classChatRoom_aeb93eaf0f592e9c30f88ad64427dfe0d}{chat\+History}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classChatRoom_a69f31b242d9c652f1d7cbecdd408a27a}\label{classChatRoom_a69f31b242d9c652f1d7cbecdd408a27a}} 
+\index{ChatRoom@{ChatRoom}!````~ChatRoom@{$\sim$ChatRoom}}
+\index{````~ChatRoom@{$\sim$ChatRoom}!ChatRoom@{ChatRoom}}
+\doxysubsubsection{\texorpdfstring{$\sim$ChatRoom()}{~ChatRoom()}}
+{\footnotesize\ttfamily virtual Chat\+Room\+::$\sim$\+Chat\+Room (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classChatRoom_a69b77529a5bb7ffe78f41608ec4ea0a1}\label{classChatRoom_a69b77529a5bb7ffe78f41608ec4ea0a1}} 
+\index{ChatRoom@{ChatRoom}!createIterator@{createIterator}}
+\index{createIterator@{createIterator}!ChatRoom@{ChatRoom}}
+\doxysubsubsection{\texorpdfstring{createIterator()}{createIterator()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classIterator}{Iterator}}$\ast$ Chat\+Room\+::create\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classDogorithm_aa74c69b2475727f156e16c73749c824f}{Dogorithm}}, and \mbox{\hyperlink{classCtrlCat_acb86d6694348af99f8cc34801951e29a}{Ctrl\+Cat}}.
+
+\mbox{\Hypertarget{classChatRoom_ae0067467d40d0e183b1fc1e7c2d9ee65}\label{classChatRoom_ae0067467d40d0e183b1fc1e7c2d9ee65}} 
+\index{ChatRoom@{ChatRoom}!getChatHistory@{getChatHistory}}
+\index{getChatHistory@{getChatHistory}!ChatRoom@{ChatRoom}}
+\doxysubsubsection{\texorpdfstring{getChatHistory()}{getChatHistory()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ \& Chat\+Room\+::get\+Chat\+History (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classChatRoom_ad9e0bfc8e871e670d8d824e3dee1e24e}\label{classChatRoom_ad9e0bfc8e871e670d8d824e3dee1e24e}} 
+\index{ChatRoom@{ChatRoom}!getUsers@{getUsers}}
+\index{getUsers@{getUsers}!ChatRoom@{ChatRoom}}
+\doxysubsubsection{\texorpdfstring{getUsers()}{getUsers()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classUser}{User}} $\ast$ $>$ \& Chat\+Room\+::get\+Users (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classChatRoom_ad7d4fe63622992ee74913a0c04c1b840}\label{classChatRoom_ad7d4fe63622992ee74913a0c04c1b840}} 
+\index{ChatRoom@{ChatRoom}!registerUser@{registerUser}}
+\index{registerUser@{registerUser}!ChatRoom@{ChatRoom}}
+\doxysubsubsection{\texorpdfstring{registerUser()}{registerUser()}}
+{\footnotesize\ttfamily virtual void Chat\+Room\+::register\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classDogorithm_af32650fc62212dd15e07cfef5ba4f8ef}{Dogorithm}}, and \mbox{\hyperlink{classCtrlCat_a43428ea63ace414c9d846b55646e621b}{Ctrl\+Cat}}.
+
+\mbox{\Hypertarget{classChatRoom_a01c7ea1d26aefc886c0f8b2bc63ade28}\label{classChatRoom_a01c7ea1d26aefc886c0f8b2bc63ade28}} 
+\index{ChatRoom@{ChatRoom}!removeUser@{removeUser}}
+\index{removeUser@{removeUser}!ChatRoom@{ChatRoom}}
+\doxysubsubsection{\texorpdfstring{removeUser()}{removeUser()}}
+{\footnotesize\ttfamily virtual void Chat\+Room\+::remove\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classDogorithm_acb225404e4e8942b8d3e32d4b8dfa287}{Dogorithm}}, and \mbox{\hyperlink{classCtrlCat_a061a5c44a8d8984ed1b39c24caa2ee10}{Ctrl\+Cat}}.
+
+\mbox{\Hypertarget{classChatRoom_aa96b9ab9402fa28611a6c3277b2a17fb}\label{classChatRoom_aa96b9ab9402fa28611a6c3277b2a17fb}} 
+\index{ChatRoom@{ChatRoom}!saveMessage@{saveMessage}}
+\index{saveMessage@{saveMessage}!ChatRoom@{ChatRoom}}
+\doxysubsubsection{\texorpdfstring{saveMessage()}{saveMessage()}}
+{\footnotesize\ttfamily virtual void Chat\+Room\+::save\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{from\+User }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classDogorithm_adebc1dd3701d8bcfdef976571dc36c78}{Dogorithm}}, and \mbox{\hyperlink{classCtrlCat_a6977915f1c9f4c6a3e40a02969f69a2a}{Ctrl\+Cat}}.
+
+\mbox{\Hypertarget{classChatRoom_a25a28b991d4b8aa3e2e81481d1690619}\label{classChatRoom_a25a28b991d4b8aa3e2e81481d1690619}} 
+\index{ChatRoom@{ChatRoom}!sendMessage@{sendMessage}}
+\index{sendMessage@{sendMessage}!ChatRoom@{ChatRoom}}
+\doxysubsubsection{\texorpdfstring{sendMessage()}{sendMessage()}}
+{\footnotesize\ttfamily virtual void Chat\+Room\+::send\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{from\+User }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classDogorithm_a32c9623e9d2e530756a5ad3fdb570a93}{Dogorithm}}, and \mbox{\hyperlink{classCtrlCat_a112e641e37ce4f8847e86caae7430a24}{Ctrl\+Cat}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classChatRoom_aeb93eaf0f592e9c30f88ad64427dfe0d}\label{classChatRoom_aeb93eaf0f592e9c30f88ad64427dfe0d}} 
+\index{ChatRoom@{ChatRoom}!chatHistory@{chatHistory}}
+\index{chatHistory@{chatHistory}!ChatRoom@{ChatRoom}}
+\doxysubsubsection{\texorpdfstring{chatHistory}{chatHistory}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Chat\+Room\+::chat\+History\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classChatRoom_a8ab528a7f3fbc7506e9bf1aec140ea48}\label{classChatRoom_a8ab528a7f3fbc7506e9bf1aec140ea48}} 
+\index{ChatRoom@{ChatRoom}!users@{users}}
+\index{users@{users}!ChatRoom@{ChatRoom}}
+\doxysubsubsection{\texorpdfstring{users}{users}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classUser}{User}}$\ast$$>$ Chat\+Room\+::users\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PetSpace_8h}{Pet\+Space.\+h}}\item 
+\mbox{\hyperlink{PetSpace_8cpp}{Pet\+Space.\+cpp}}\end{DoxyCompactItemize}

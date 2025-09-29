@@ -130,9 +130,11 @@ protected:
     std::vector<ChatRoom*> chatRooms;
     std::list<Command*> commandQueue;
     UserState* currentState;
+    // EXTRA :: Admin
+    bool isAdmin;  
     
 public:
-    User(const std::string& userName);
+     User(const std::string& userName, bool admin = false);
     virtual ~User();
     
     virtual void send(const std::string& message, ChatRoom* room) = 0;
@@ -146,6 +148,10 @@ public:
     void joinChatRoom(ChatRoom* room);
     void leaveChatRoom(ChatRoom* room);
     std::vector<ChatRoom*>& getChatRooms();
+
+    void setAdmin(bool admin);
+    bool getAdmin() const;
+    ChatRoom* createChatRoom(const std::string& roomType);
 };
 
 class User1 : public User {
@@ -169,4 +175,19 @@ public:
     void receive(const std::string& message, User* fromUser, ChatRoom* room) override;
 };
 
+// ============= extra : CustomChatRoom CLASSES =============
+
+class CustomChatRoom : public ChatRoom {
+private:
+    std::string roomName;
+    
+public:
+    CustomChatRoom(const std::string& name);
+    void registerUser(User* user) override;
+    void removeUser(User* user) override;
+    void sendMessage(const std::string& message, User* fromUser) override;
+    void saveMessage(const std::string& message, User* fromUser) override;
+    Iterator* createIterator() override;
+    std::string getRoomName() const;
+};
 #endif // PETSPACE_H

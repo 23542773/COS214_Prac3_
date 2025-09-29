@@ -1,0 +1,68 @@
+\hypertarget{classUserState}{}\doxysection{User\+State Class Reference}
+\label{classUserState}\index{UserState@{UserState}}
+
+
+{\ttfamily \#include $<$Pet\+Space.\+h$>$}
+
+
+
+Inheritance diagram for User\+State\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classUserState_a29d4aa7cf6918c53120ac0e43d096877}{$\sim$\+User\+State}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classUserState_a5764b40fb31d1edf2729300f03c99346}{handle\+Message}} (\mbox{\hyperlink{classUser}{User}} $\ast$user, const std\+::string \&message)=0
+\item 
+virtual void \mbox{\hyperlink{classUserState_a1ce511f75a030bf8dd5c7830756a78d3}{change\+State}} (\mbox{\hyperlink{classUser}{User}} $\ast$user, \mbox{\hyperlink{classUserState}{User\+State}} $\ast$new\+State)=0
+\item 
+virtual std\+::string \mbox{\hyperlink{classUserState_a3deea93340663964226a23015fa7e85e}{get\+State\+Name}} () const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classUserState_a29d4aa7cf6918c53120ac0e43d096877}\label{classUserState_a29d4aa7cf6918c53120ac0e43d096877}} 
+\index{UserState@{UserState}!````~UserState@{$\sim$UserState}}
+\index{````~UserState@{$\sim$UserState}!UserState@{UserState}}
+\doxysubsubsection{\texorpdfstring{$\sim$UserState()}{~UserState()}}
+{\footnotesize\ttfamily virtual User\+State\+::$\sim$\+User\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUserState_a1ce511f75a030bf8dd5c7830756a78d3}\label{classUserState_a1ce511f75a030bf8dd5c7830756a78d3}} 
+\index{UserState@{UserState}!changeState@{changeState}}
+\index{changeState@{changeState}!UserState@{UserState}}
+\doxysubsubsection{\texorpdfstring{changeState()}{changeState()}}
+{\footnotesize\ttfamily virtual void User\+State\+::change\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user,  }\item[{\mbox{\hyperlink{classUserState}{User\+State}} $\ast$}]{new\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBusy_a730a4f4aca2ead373776a44b581ac378}{Busy}}, \mbox{\hyperlink{classOffline_ac798a9011241b1e01d2c2d3f28ef130f}{Offline}}, and \mbox{\hyperlink{classOnline_a8f3c90cf3271f05b6e4e05707a58af79}{Online}}.
+
+\mbox{\Hypertarget{classUserState_a3deea93340663964226a23015fa7e85e}\label{classUserState_a3deea93340663964226a23015fa7e85e}} 
+\index{UserState@{UserState}!getStateName@{getStateName}}
+\index{getStateName@{getStateName}!UserState@{UserState}}
+\doxysubsubsection{\texorpdfstring{getStateName()}{getStateName()}}
+{\footnotesize\ttfamily virtual std\+::string User\+State\+::get\+State\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBusy_a48e1f97767912a01036fcc248213a151}{Busy}}, \mbox{\hyperlink{classOffline_a06f2be9fa41d76f0f22cbab1c5a2d5ef}{Offline}}, and \mbox{\hyperlink{classOnline_a504140ddce7ba69006ff285dce1fff0a}{Online}}.
+
+\mbox{\Hypertarget{classUserState_a5764b40fb31d1edf2729300f03c99346}\label{classUserState_a5764b40fb31d1edf2729300f03c99346}} 
+\index{UserState@{UserState}!handleMessage@{handleMessage}}
+\index{handleMessage@{handleMessage}!UserState@{UserState}}
+\doxysubsubsection{\texorpdfstring{handleMessage()}{handleMessage()}}
+{\footnotesize\ttfamily virtual void User\+State\+::handle\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user,  }\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBusy_af57fc4ec5273103526e3ec3c2f470a9a}{Busy}}, \mbox{\hyperlink{classOffline_acc660c007e2bf059e349353b60ef8a46}{Offline}}, and \mbox{\hyperlink{classOnline_a58faeb263ab5dc19b995e3debfb2c5cc}{Online}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PetSpace_8h}{Pet\+Space.\+h}}\end{DoxyCompactItemize}

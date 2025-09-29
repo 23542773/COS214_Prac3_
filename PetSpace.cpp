@@ -1,4 +1,3 @@
-
 #include "PetSpace.h"
 #include <iostream>
 #include <algorithm>
@@ -7,24 +6,22 @@
 
 // Online State
 void Online::handleMessage(User* user, const std::string& message) {
-
     std::cout<<user->getName() << " [Online] received: "<<message <<std::endl;
 }
 
 void Online::changeState(User* user, UserState* newState) {
-
     user->setState(newState);
     std::cout<< user->getName() <<"'s state changed to "<<newState->getStateName()<< std::endl;
 }
 
 std::string Online::getStateName() const {
-    
     return "Online";
 }
 
 // Offline State
 void Offline::handleMessage(User* user, const std::string& message) {
-    std::cout<<user->getName() << " [Offline] cannot receive messages. " <<std::endl;
+    (void)message; // Silence unused parameter warning
+    std::cout << user->getName() << " [Offline] cannot receive messages. " << std::endl;
 }
 
 void Offline::changeState(User* user, UserState* newState) {
@@ -33,7 +30,6 @@ void Offline::changeState(User* user, UserState* newState) {
 }
 
 std::string Offline::getStateName() const {
-    
     return "Offline";
 }
 
@@ -48,7 +44,6 @@ void Busy::changeState(User* user, UserState* newState) {
 }
 
 std::string Busy::getStateName() const {
-   
     return "Busy";
 }
 
@@ -58,17 +53,14 @@ ChatHistoryIterator::ChatHistoryIterator(std::vector<std::string>* history)
     : chatHistory(history), currentIndex(0){}
 
 bool ChatHistoryIterator::hasNext() {
-    
     return chatHistory && currentIndex < static_cast<int>(chatHistory->size());
 }
 
 std::string ChatHistoryIterator::next() {
-    
     if (!hasNext())
     {
         return"";
     }
-    
     return (*chatHistory)[currentIndex++];
 }
 
@@ -78,164 +70,304 @@ void ChatHistoryIterator::reset() {
 
 // ============= COMMAND PATTERN IMPLEMENTATIONS =============
 
-Command::Command(ChatRoom* room, User* user, const std::string& msg) {
-    // TODO: Initialize command
+Command::Command(ChatRoom* room, User* user, const std::string& msg) 
+    : chatRoom(room), fromUser(user), message(msg) {
 }
 
 SendMessageCommand::SendMessageCommand(ChatRoom* room, User* user, const std::string& msg) 
     : Command(room, user, msg) {
-    // TODO: Initialize send message command
 }
 
 void SendMessageCommand::execute() {
-    // TODO: Execute send message command
+    if (chatRoom && fromUser) {
+        chatRoom->sendMessage(message, fromUser);
+    }
 }
 
 LogMessageCommand::LogMessageCommand(ChatRoom* room, User* user, const std::string& msg) 
     : Command(room, user, msg) {
-    // TODO: Initialize log message command
 }
 
 void LogMessageCommand::execute() {
-    // TODO: Execute log message command
+    if (chatRoom && fromUser) {
+        chatRoom->saveMessage(message, fromUser);
+    }
 }
 
 // ============= MEDIATOR PATTERN IMPLEMENTATIONS =============
 
 std::vector<User*>& ChatRoom::getUsers() {
-    // TODO: Return users vector
-    return users;
+   return users;
 }
 
 std::vector<std::string>& ChatRoom::getChatHistory() {
-    // TODO: Return chat history
     return chatHistory;
 }
 
 // CtrlCat Implementation
 void CtrlCat::registerUser(User* user) {
-    // TODO: Register user in CtrlCat room
+      if (user && std::find(users.begin(), users.end(), user) == users.end()) {
+        users.push_back(user);
+        std::cout << user->getName() << " joined CtrlCat room!" << std::endl;
+    }
 }
 
 void CtrlCat::removeUser(User* user) {
-    // TODO: Remove user from CtrlCat room
+     auto it = std::find(users.begin(), users.end(), user);
+    if (it != users.end()) {
+        users.erase(it);
+        std::cout << user->getName() << " left CtrlCat room!" << std::endl;
+    }
 }
 
 void CtrlCat::sendMessage(const std::string& message, User* fromUser) {
-    // TODO: Send message to all users in CtrlCat
+    std::cout << "[CtrlCat] " << fromUser->getName() << ": " << message << std::endl;
+    for (User* user : users) {
+        if (user != fromUser) {
+            user->receive(message, fromUser, this);
+        }
+    }
 }
 
 void CtrlCat::saveMessage(const std::string& message, User* fromUser) {
-    // TODO: Save message to CtrlCat history
+    std::string fullMessage = fromUser->getName() + ": " + message;
+    chatHistory.push_back(fullMessage);
+    std::cout << "[CtrlCat] Message saved to history: " << fullMessage << std::endl;
 }
 
 Iterator* CtrlCat::createIterator() {
-    // TODO: Create and return iterator for CtrlCat
-    return nullptr;
+   return new ChatHistoryIterator(&chatHistory);
 }
 
 // Dogorithm Implementation
 void Dogorithm::registerUser(User* user) {
-    // TODO: Register user in Dogorithm room
+    if (user && std::find(users.begin(), users.end(), user) == users.end()) {
+        users.push_back(user);
+        std::cout << user->getName() << " joined Dogorithm room!" << std::endl;
+    }
 }
 
 void Dogorithm::removeUser(User* user) {
-    // TODO: Remove user from Dogorithm room
+      auto it = std::find(users.begin(), users.end(), user);
+    if (it != users.end()) {
+        users.erase(it);
+        std::cout << user->getName() << " left Dogorithm room!" << std::endl;
+    }
 }
 
 void Dogorithm::sendMessage(const std::string& message, User* fromUser) {
-    // TODO: Send message to all users in Dogorithm
+    std::cout << "[Dogorithm] " << fromUser->getName() << ": " << message << std::endl;
+    for (User* user : users) {
+        if (user != fromUser) {
+            user->receive(message, fromUser, this);
+        }
+    }
 }
 
 void Dogorithm::saveMessage(const std::string& message, User* fromUser) {
-    // TODO: Save message to Dogorithm history
+    std::string fullMessage = fromUser->getName() + ": " + message;
+    chatHistory.push_back(fullMessage);
+    std::cout << "[Dogorithm] Message saved to history: " << fullMessage << std::endl;
 }
 
 Iterator* Dogorithm::createIterator() {
-    // TODO: Create and return iterator for Dogorithm
-    return nullptr;
+    return new ChatHistoryIterator(&chatHistory);
 }
 
 // ============= USER CLASS IMPLEMENTATIONS =============
 
-User::User(const std::string& userName) {
-    // TODO: Initialize user
+User::User(const std::string& userName, bool admin) : name(userName), currentState(new Online()), isAdmin(admin) {
+    if (isAdmin) {
+        std::cout << userName << " created as Admin user!" << std::endl;
+    }
 }
 
 User::~User() {
-    // TODO: Clean up user resources
+    delete currentState;
+    for (Command* command : commandQueue) {
+        delete command;
+    }
 }
 
 void User::addCommand(Command* command) {
-    // TODO: Add command to queue
+    if (command) {
+        commandQueue.push_back(command);
+    }
 }
 
 void User::executeAll() {
-    // TODO: Execute all commands in queue
+    for (Command* command : commandQueue) {
+        if (command) {
+            command->execute();
+        }
+    }
+    // Clear executed commands
+    for (Command* command : commandQueue) {
+        delete command;
+    }
+    commandQueue.clear();
 }
 
 void User::setState(UserState* newState) {
-    // TODO: Set user state
+    if (currentState) {
+        delete currentState;
+    }
+    currentState = newState;
 }
 
 UserState* User::getState() const {
-    // TODO: Return current state
-    return nullptr;
+    return currentState;
 }
 
 std::string User::getName() const {
-    // TODO: Return user name
-    return "";
+    return name;
 }
 
 void User::joinChatRoom(ChatRoom* room) {
-    // TODO: Join chat room
+    if (room && std::find(chatRooms.begin(), chatRooms.end(), room) == chatRooms.end()) {
+        chatRooms.push_back(room);
+        room->registerUser(this);
+    }
 }
 
 void User::leaveChatRoom(ChatRoom* room) {
-    // TODO: Leave chat room
+    auto it = std::find(chatRooms.begin(), chatRooms.end(), room);
+    if (it != chatRooms.end()) {
+        chatRooms.erase(it);
+        room->removeUser(this);
+    }
 }
 
 std::vector<ChatRoom*>& User::getChatRooms() {
-    // TODO: Return chat rooms
     return chatRooms;
 }
 
 // User1 Implementation
-User1::User1(const std::string& userName) : User(userName) {
-    // TODO: Initialize User1
+User1::User1(const std::string& userName) : User(userName, false) {
 }
 
 void User1::send(const std::string& message, ChatRoom* room) {
-    // TODO: Implement User1 send behavior
+    if (room) {
+        // Create commands for sending and logging message
+        addCommand(new SendMessageCommand(room, this, message));
+        addCommand(new LogMessageCommand(room, this, message));
+        
+        // Execute all commands
+        executeAll();
+    }
 }
 
-void User1::receive(const std::string& message, User* fromUser, ChatRoom* room) {
-    // TODO: Implement User1 receive behavior
+void User1::receive(const std::string& message, User* fromUser, ChatRoom*) {
+    if (currentState && fromUser) {
+        currentState->handleMessage(this, message);
+    }
 }
 
 // User2 Implementation
-User2::User2(const std::string& userName) : User(userName) {
-    // TODO: Initialize User2
+User2::User2(const std::string& userName) : User(userName, false) {
 }
 
 void User2::send(const std::string& message, ChatRoom* room) {
-    // TODO: Implement User2 send behavior
+    if (room) {
+        // Create commands for sending and logging message
+        addCommand(new SendMessageCommand(room, this, message));
+        addCommand(new LogMessageCommand(room, this, message));
+        
+        // Execute all commands
+        executeAll();
+    }
 }
 
-void User2::receive(const std::string& message, User* fromUser, ChatRoom* room) {
-    // TODO: Implement User2 receive behavior
+void User2::receive(const std::string& message, User* fromUser, ChatRoom*) {
+    if (currentState && fromUser) {
+        currentState->handleMessage(this, message);
+    }
 }
 
 // User3 Implementation
-User3::User3(const std::string& userName) : User(userName) {
-    // TODO: Initialize User3
+User3::User3(const std::string& userName) : User(userName, false) {
 }
 
 void User3::send(const std::string& message, ChatRoom* room) {
-    // TODO: Implement User3 send behavior
+    if (room) {
+        // Create commands for sending and logging message
+        addCommand(new SendMessageCommand(room, this, message));
+        addCommand(new LogMessageCommand(room, this, message));
+        
+        // Execute all commands
+        executeAll();
+    }
 }
 
-void User3::receive(const std::string& message, User* fromUser, ChatRoom* room) {
-    // TODO: Implement User3 receive behavior
+void User3::receive(const std::string& message, User* fromUser, ChatRoom*) {
+    if (currentState && fromUser) {
+        currentState->handleMessage(this, message);
+    }
+}
+
+// ============= ADMIN IMPLEMENTATIONS =============
+
+void User::setAdmin(bool admin) {
+    isAdmin = admin;
+    if (admin) {
+        std::cout << name << " has been granted admin privileges!" << std::endl;
+    }
+}
+
+bool User::getAdmin() const {
+    return isAdmin;
+}
+
+ChatRoom* User::createChatRoom(const std::string& roomType) {
+    if (!isAdmin) {
+        std::cout << name << " does not have permission to create chat rooms!" << std::endl;
+        return nullptr;
+    }
+    
+    std::cout << "Chat room created by admin" << std::endl;
+    
+    // Create a custom room with any name
+    return new CustomChatRoom(roomType);
+}
+
+// ============= Custom CLASS IMPLEMENTATIONS =============
+CustomChatRoom::CustomChatRoom(const std::string& name) : roomName(name) {
+}
+
+void CustomChatRoom::registerUser(User* user) {
+    if (user && std::find(users.begin(), users.end(), user) == users.end()) {
+        users.push_back(user);
+        std::cout << user->getName() << " joined " << roomName << " room!" << std::endl;
+    }
+}
+
+void CustomChatRoom::removeUser(User* user) {
+    auto it = std::find(users.begin(), users.end(), user);
+    if (it != users.end()) {
+        users.erase(it);
+        std::cout << user->getName() << " left " << roomName << " room!" << std::endl;
+    }
+}
+
+void CustomChatRoom::sendMessage(const std::string& message, User* fromUser) {
+    std::cout << "[" << roomName << "] " << fromUser->getName() << ": " << message << std::endl;
+    for (User* user : users) {
+        if (user != fromUser) {
+            user->receive(message, fromUser, this);
+        }
+    }
+}
+
+void CustomChatRoom::saveMessage(const std::string& message, User* fromUser) {
+    std::string fullMessage = fromUser->getName() + ": " + message;
+    chatHistory.push_back(fullMessage);
+    std::cout << "[" << roomName << "] Message saved to history: " << fullMessage << std::endl;
+}
+
+Iterator* CustomChatRoom::createIterator() {
+    return new ChatHistoryIterator(&chatHistory);
+}
+
+std::string CustomChatRoom::getRoomName() const {
+    return roomName;
 }

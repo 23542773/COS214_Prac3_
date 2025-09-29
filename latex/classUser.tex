@@ -1,0 +1,171 @@
+\hypertarget{classUser}{}\doxysection{User Class Reference}
+\label{classUser}\index{User@{User}}
+
+
+{\ttfamily \#include $<$Pet\+Space.\+h$>$}
+
+
+
+Inheritance diagram for User\+:
+% FIG 0
+
+
+Collaboration diagram for User\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUser_aa07d4a3ff7450c7e7ab0ceee7d463fb6}{User}} (const std\+::string \&user\+Name)
+\item 
+virtual \mbox{\hyperlink{classUser_ac00b72ad64eb4149f7b21b9f5468c2b2}{$\sim$\+User}} ()
+\item 
+virtual void \mbox{\hyperlink{classUser_a101f9af483b19a039a99b4e2d791fe37}{send}} (const std\+::string \&message, \mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$room)=0
+\item 
+virtual void \mbox{\hyperlink{classUser_a0c568218381c6bf432c4ca348e6e1042}{receive}} (const std\+::string \&message, \mbox{\hyperlink{classUser}{User}} $\ast$from\+User, \mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$room)=0
+\item 
+void \mbox{\hyperlink{classUser_a40b0f3772906a022151037db5aaea30f}{add\+Command}} (\mbox{\hyperlink{classCommand}{Command}} $\ast$command)
+\item 
+void \mbox{\hyperlink{classUser_a44388bdb8fb6accbe7fe143541c3d98d}{execute\+All}} ()
+\item 
+void \mbox{\hyperlink{classUser_abb7be0a297d66617dbf7e91c5177da88}{set\+State}} (\mbox{\hyperlink{classUserState}{User\+State}} $\ast$new\+State)
+\item 
+\mbox{\hyperlink{classUserState}{User\+State}} $\ast$ \mbox{\hyperlink{classUser_a7763a9d1f6172c40d2c71e4ba548ad2f}{get\+State}} () const
+\item 
+std\+::string \mbox{\hyperlink{classUser_a446a64e63adafbc2e1428532275ad6a1}{get\+Name}} () const
+\item 
+void \mbox{\hyperlink{classUser_aa53e81a49101e758f186a3e14a722092}{join\+Chat\+Room}} (\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$room)
+\item 
+void \mbox{\hyperlink{classUser_a76cc4fc2337d257d5fa7738d98780a83}{leave\+Chat\+Room}} (\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$room)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$ $>$ \& \mbox{\hyperlink{classUser_a34011e57683397f7969815b4fa97f411}{get\+Chat\+Rooms}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classUser_a085d8d69282b6298964eab8351584536}{name}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$ $>$ \mbox{\hyperlink{classUser_a58505cd2204f4e0876a076631c0fd287}{chat\+Rooms}}
+\item 
+std\+::list$<$ \mbox{\hyperlink{classCommand}{Command}} $\ast$ $>$ \mbox{\hyperlink{classUser_a389cd730b5b91eafd51a26f992db4684}{command\+Queue}}
+\item 
+\mbox{\hyperlink{classUserState}{User\+State}} $\ast$ \mbox{\hyperlink{classUser_a55b51c72bc2fca29843a15566454af8a}{current\+State}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classUser_aa07d4a3ff7450c7e7ab0ceee7d463fb6}\label{classUser_aa07d4a3ff7450c7e7ab0ceee7d463fb6}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{user\+Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classUser_ac00b72ad64eb4149f7b21b9f5468c2b2}\label{classUser_ac00b72ad64eb4149f7b21b9f5468c2b2}} 
+\index{User@{User}!````~User@{$\sim$User}}
+\index{````~User@{$\sim$User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{$\sim$User()}{~User()}}
+{\footnotesize\ttfamily User\+::$\sim$\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUser_a40b0f3772906a022151037db5aaea30f}\label{classUser_a40b0f3772906a022151037db5aaea30f}} 
+\index{User@{User}!addCommand@{addCommand}}
+\index{addCommand@{addCommand}!User@{User}}
+\doxysubsubsection{\texorpdfstring{addCommand()}{addCommand()}}
+{\footnotesize\ttfamily void User\+::add\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCommand}{Command}} $\ast$}]{command }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classUser_a44388bdb8fb6accbe7fe143541c3d98d}\label{classUser_a44388bdb8fb6accbe7fe143541c3d98d}} 
+\index{User@{User}!executeAll@{executeAll}}
+\index{executeAll@{executeAll}!User@{User}}
+\doxysubsubsection{\texorpdfstring{executeAll()}{executeAll()}}
+{\footnotesize\ttfamily void User\+::execute\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classUser_a34011e57683397f7969815b4fa97f411}\label{classUser_a34011e57683397f7969815b4fa97f411}} 
+\index{User@{User}!getChatRooms@{getChatRooms}}
+\index{getChatRooms@{getChatRooms}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getChatRooms()}{getChatRooms()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$ $>$ \& User\+::get\+Chat\+Rooms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classUser_a446a64e63adafbc2e1428532275ad6a1}\label{classUser_a446a64e63adafbc2e1428532275ad6a1}} 
+\index{User@{User}!getName@{getName}}
+\index{getName@{getName}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string User\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classUser_a7763a9d1f6172c40d2c71e4ba548ad2f}\label{classUser_a7763a9d1f6172c40d2c71e4ba548ad2f}} 
+\index{User@{User}!getState@{getState}}
+\index{getState@{getState}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUserState}{User\+State}} $\ast$ User\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classUser_aa53e81a49101e758f186a3e14a722092}\label{classUser_aa53e81a49101e758f186a3e14a722092}} 
+\index{User@{User}!joinChatRoom@{joinChatRoom}}
+\index{joinChatRoom@{joinChatRoom}!User@{User}}
+\doxysubsubsection{\texorpdfstring{joinChatRoom()}{joinChatRoom()}}
+{\footnotesize\ttfamily void User\+::join\+Chat\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$}]{room }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classUser_a76cc4fc2337d257d5fa7738d98780a83}\label{classUser_a76cc4fc2337d257d5fa7738d98780a83}} 
+\index{User@{User}!leaveChatRoom@{leaveChatRoom}}
+\index{leaveChatRoom@{leaveChatRoom}!User@{User}}
+\doxysubsubsection{\texorpdfstring{leaveChatRoom()}{leaveChatRoom()}}
+{\footnotesize\ttfamily void User\+::leave\+Chat\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$}]{room }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classUser_a0c568218381c6bf432c4ca348e6e1042}\label{classUser_a0c568218381c6bf432c4ca348e6e1042}} 
+\index{User@{User}!receive@{receive}}
+\index{receive@{receive}!User@{User}}
+\doxysubsubsection{\texorpdfstring{receive()}{receive()}}
+{\footnotesize\ttfamily virtual void User\+::receive (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{from\+User,  }\item[{\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$}]{room }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classUser3_ace09bf980fa7e3be1b3833a4c3b86424}{User3}}, \mbox{\hyperlink{classUser2_ac77cf3f2c0e272c8e72d5a1679bdd062}{User2}}, and \mbox{\hyperlink{classUser1_afb16dd51ef4917ba593ba3c091bd4cbb}{User1}}.
+
+\mbox{\Hypertarget{classUser_a101f9af483b19a039a99b4e2d791fe37}\label{classUser_a101f9af483b19a039a99b4e2d791fe37}} 
+\index{User@{User}!send@{send}}
+\index{send@{send}!User@{User}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily virtual void User\+::send (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$}]{room }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classUser3_a0c63197697fc339b501434c20cf2ff4f}{User3}}, \mbox{\hyperlink{classUser2_a6401bd8ad09885480a5367e3dd68a933}{User2}}, and \mbox{\hyperlink{classUser1_af3434a4fb2a93ce7e8d7df7ac8d24515}{User1}}.
+
+\mbox{\Hypertarget{classUser_abb7be0a297d66617dbf7e91c5177da88}\label{classUser_abb7be0a297d66617dbf7e91c5177da88}} 
+\index{User@{User}!setState@{setState}}
+\index{setState@{setState}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void User\+::set\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUserState}{User\+State}} $\ast$}]{new\+State }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classUser_a58505cd2204f4e0876a076631c0fd287}\label{classUser_a58505cd2204f4e0876a076631c0fd287}} 
+\index{User@{User}!chatRooms@{chatRooms}}
+\index{chatRooms@{chatRooms}!User@{User}}
+\doxysubsubsection{\texorpdfstring{chatRooms}{chatRooms}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classChatRoom}{Chat\+Room}}$\ast$$>$ User\+::chat\+Rooms\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUser_a389cd730b5b91eafd51a26f992db4684}\label{classUser_a389cd730b5b91eafd51a26f992db4684}} 
+\index{User@{User}!commandQueue@{commandQueue}}
+\index{commandQueue@{commandQueue}!User@{User}}
+\doxysubsubsection{\texorpdfstring{commandQueue}{commandQueue}}
+{\footnotesize\ttfamily std\+::list$<$\mbox{\hyperlink{classCommand}{Command}}$\ast$$>$ User\+::command\+Queue\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUser_a55b51c72bc2fca29843a15566454af8a}\label{classUser_a55b51c72bc2fca29843a15566454af8a}} 
+\index{User@{User}!currentState@{currentState}}
+\index{currentState@{currentState}!User@{User}}
+\doxysubsubsection{\texorpdfstring{currentState}{currentState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUserState}{User\+State}}$\ast$ User\+::current\+State\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUser_a085d8d69282b6298964eab8351584536}\label{classUser_a085d8d69282b6298964eab8351584536}} 
+\index{User@{User}!name@{name}}
+\index{name@{name}!User@{User}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily std\+::string User\+::name\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PetSpace_8h}{Pet\+Space.\+h}}\item 
+\mbox{\hyperlink{PetSpace_8cpp}{Pet\+Space.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,87 @@
+\hypertarget{classCtrlCat}{}\doxysection{Ctrl\+Cat Class Reference}
+\label{classCtrlCat}\index{CtrlCat@{CtrlCat}}
+
+
+{\ttfamily \#include $<$Pet\+Space.\+h$>$}
+
+
+
+Inheritance diagram for Ctrl\+Cat\+:
+% FIG 0
+
+
+Collaboration diagram for Ctrl\+Cat\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCtrlCat_a43428ea63ace414c9d846b55646e621b}{register\+User}} (\mbox{\hyperlink{classUser}{User}} $\ast$user) override
+\item 
+void \mbox{\hyperlink{classCtrlCat_a061a5c44a8d8984ed1b39c24caa2ee10}{remove\+User}} (\mbox{\hyperlink{classUser}{User}} $\ast$user) override
+\item 
+void \mbox{\hyperlink{classCtrlCat_a112e641e37ce4f8847e86caae7430a24}{send\+Message}} (const std\+::string \&message, \mbox{\hyperlink{classUser}{User}} $\ast$from\+User) override
+\item 
+void \mbox{\hyperlink{classCtrlCat_a6977915f1c9f4c6a3e40a02969f69a2a}{save\+Message}} (const std\+::string \&message, \mbox{\hyperlink{classUser}{User}} $\ast$from\+User) override
+\item 
+\mbox{\hyperlink{classIterator}{Iterator}} $\ast$ \mbox{\hyperlink{classCtrlCat_acb86d6694348af99f8cc34801951e29a}{create\+Iterator}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCtrlCat_acb86d6694348af99f8cc34801951e29a}\label{classCtrlCat_acb86d6694348af99f8cc34801951e29a}} 
+\index{CtrlCat@{CtrlCat}!createIterator@{createIterator}}
+\index{createIterator@{createIterator}!CtrlCat@{CtrlCat}}
+\doxysubsubsection{\texorpdfstring{createIterator()}{createIterator()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIterator}{Iterator}} $\ast$ Ctrl\+Cat\+::create\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classChatRoom_a69b77529a5bb7ffe78f41608ec4ea0a1}{Chat\+Room}}.
+
+\mbox{\Hypertarget{classCtrlCat_a43428ea63ace414c9d846b55646e621b}\label{classCtrlCat_a43428ea63ace414c9d846b55646e621b}} 
+\index{CtrlCat@{CtrlCat}!registerUser@{registerUser}}
+\index{registerUser@{registerUser}!CtrlCat@{CtrlCat}}
+\doxysubsubsection{\texorpdfstring{registerUser()}{registerUser()}}
+{\footnotesize\ttfamily void Ctrl\+Cat\+::register\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classChatRoom_ad7d4fe63622992ee74913a0c04c1b840}{Chat\+Room}}.
+
+\mbox{\Hypertarget{classCtrlCat_a061a5c44a8d8984ed1b39c24caa2ee10}\label{classCtrlCat_a061a5c44a8d8984ed1b39c24caa2ee10}} 
+\index{CtrlCat@{CtrlCat}!removeUser@{removeUser}}
+\index{removeUser@{removeUser}!CtrlCat@{CtrlCat}}
+\doxysubsubsection{\texorpdfstring{removeUser()}{removeUser()}}
+{\footnotesize\ttfamily void Ctrl\+Cat\+::remove\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classChatRoom_a01c7ea1d26aefc886c0f8b2bc63ade28}{Chat\+Room}}.
+
+\mbox{\Hypertarget{classCtrlCat_a6977915f1c9f4c6a3e40a02969f69a2a}\label{classCtrlCat_a6977915f1c9f4c6a3e40a02969f69a2a}} 
+\index{CtrlCat@{CtrlCat}!saveMessage@{saveMessage}}
+\index{saveMessage@{saveMessage}!CtrlCat@{CtrlCat}}
+\doxysubsubsection{\texorpdfstring{saveMessage()}{saveMessage()}}
+{\footnotesize\ttfamily void Ctrl\+Cat\+::save\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{from\+User }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classChatRoom_aa96b9ab9402fa28611a6c3277b2a17fb}{Chat\+Room}}.
+
+\mbox{\Hypertarget{classCtrlCat_a112e641e37ce4f8847e86caae7430a24}\label{classCtrlCat_a112e641e37ce4f8847e86caae7430a24}} 
+\index{CtrlCat@{CtrlCat}!sendMessage@{sendMessage}}
+\index{sendMessage@{sendMessage}!CtrlCat@{CtrlCat}}
+\doxysubsubsection{\texorpdfstring{sendMessage()}{sendMessage()}}
+{\footnotesize\ttfamily void Ctrl\+Cat\+::send\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{from\+User }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classChatRoom_a25a28b991d4b8aa3e2e81481d1690619}{Chat\+Room}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PetSpace_8h}{Pet\+Space.\+h}}\item 
+\mbox{\hyperlink{PetSpace_8cpp}{Pet\+Space.\+cpp}}\end{DoxyCompactItemize}
