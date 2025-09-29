@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['offline_64',['Offline',['../classOffline.html',1,'']]],
-  ['online_65',['Online',['../classOnline.html',1,'']]]
+  ['offline_71',['Offline',['../classOffline.html',1,'']]],
+  ['online_72',['Online',['../classOnline.html',1,'']]]
 ];

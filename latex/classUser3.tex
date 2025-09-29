@@ -2,6 +2,11 @@
 \label{classUser3}\index{User3@{User3}}
 
 
+Concrete user implementation.  
+
+
+
+
 {\ttfamily \#include $<$Pet\+Space.\+h$>$}
 
 
@@ -16,13 +21,16 @@ Collaboration diagram for User3\+:
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classUser3_add76666798e284c40c3227811bd5dcde}{User3}} (const std\+::string \&user\+Name)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classUser3}{User3}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classUser3_a0c63197697fc339b501434c20cf2ff4f}{send}} (const std\+::string \&message, \mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$room) override
-\item 
+\begin{DoxyCompactList}\small\item\em Sends a message to a chat room. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classUser3_ace09bf980fa7e3be1b3833a4c3b86424}{receive}} (const std\+::string \&message, \mbox{\hyperlink{classUser}{User}} $\ast$from\+User, \mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$room) override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Receives a message from the chat room. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
+
+\doxysubsection{Detailed Description}
+Concrete user implementation. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classUser3_add76666798e284c40c3227811bd5dcde}\label{classUser3_add76666798e284c40c3227811bd5dcde}} 
@@ -31,6 +39,15 @@ void \mbox{\hyperlink{classUser3_ace09bf980fa7e3be1b3833a4c3b86424}{receive}} (c
 \doxysubsubsection{\texorpdfstring{User3()}{User3()}}
 {\footnotesize\ttfamily User3\+::\+User3 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{user\+Name }\end{DoxyParamCaption})}
 
+
+
+Constructs a \mbox{\hyperlink{classUser3}{User3}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The user\textquotesingle{}s name \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -42,6 +59,19 @@ void \mbox{\hyperlink{classUser3_ace09bf980fa7e3be1b3833a4c3b86424}{receive}} (c
 
 
 
+Receives a message from the chat room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message content \\
+\hline
+{\em from\+User} & Pointer to the user who sent the message \\
+\hline
+{\em room} & Pointer to the chat room (unused)\\
+\hline
+\end{DoxyParams}
+Delegates message handling to the current state 
+
 Implements \mbox{\hyperlink{classUser_a0c568218381c6bf432c4ca348e6e1042}{User}}.
 
 \mbox{\Hypertarget{classUser3_a0c63197697fc339b501434c20cf2ff4f}\label{classUser3_a0c63197697fc339b501434c20cf2ff4f}} 
@@ -51,6 +81,17 @@ Implements \mbox{\hyperlink{classUser_a0c568218381c6bf432c4ca348e6e1042}{User}}.
 {\footnotesize\ttfamily void User3\+::send (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$}]{room }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
+
+Sends a message to a chat room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message content \\
+\hline
+{\em room} & Pointer to the destination chat room\\
+\hline
+\end{DoxyParams}
+Creates \mbox{\hyperlink{classSendMessageCommand}{Send\+Message\+Command}} and \mbox{\hyperlink{classLogMessageCommand}{Log\+Message\+Command}}, then executes them 
 
 Implements \mbox{\hyperlink{classUser_a101f9af483b19a039a99b4e2d791fe37}{User}}.
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['users_119',['users',['../classChatRoom.html#a8ab528a7f3fbc7506e9bf1aec140ea48',1,'ChatRoom']]]
+  ['name_131',['name',['../classUser.html#a085d8d69282b6298964eab8351584536',1,'User']]]
 ];

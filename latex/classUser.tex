@@ -2,6 +2,11 @@
 \label{classUser}\index{User@{User}}
 
 
+Abstract base class for all users in the system.  
+
+
+
+
 {\ttfamily \#include $<$Pet\+Space.\+h$>$}
 
 
@@ -15,30 +20,36 @@ Collaboration diagram for User\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classUser_aa07d4a3ff7450c7e7ab0ceee7d463fb6}{User}} (const std\+::string \&user\+Name)
-\item 
+\mbox{\hyperlink{classUser_af640c1b767e41500156bdc3c70181645}{User}} (const std\+::string \&user\+Name, bool admin=false)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classUser}{User}}. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classUser_ac00b72ad64eb4149f7b21b9f5468c2b2}{$\sim$\+User}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destructs the \mbox{\hyperlink{classUser}{User}}. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classUser_a101f9af483b19a039a99b4e2d791fe37}{send}} (const std\+::string \&message, \mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$room)=0
-\item 
+\begin{DoxyCompactList}\small\item\em Sends a message to a chat room. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classUser_a0c568218381c6bf432c4ca348e6e1042}{receive}} (const std\+::string \&message, \mbox{\hyperlink{classUser}{User}} $\ast$from\+User, \mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$room)=0
-\item 
+\begin{DoxyCompactList}\small\item\em Receives a message from a chat room. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classUser_a40b0f3772906a022151037db5aaea30f}{add\+Command}} (\mbox{\hyperlink{classCommand}{Command}} $\ast$command)
-\item 
+\begin{DoxyCompactList}\small\item\em Adds a command to the command queue. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classUser_a44388bdb8fb6accbe7fe143541c3d98d}{execute\+All}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Executes all commands in the queue. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classUser_abb7be0a297d66617dbf7e91c5177da88}{set\+State}} (\mbox{\hyperlink{classUserState}{User\+State}} $\ast$new\+State)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the user\textquotesingle{}s state. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classUserState}{User\+State}} $\ast$ \mbox{\hyperlink{classUser_a7763a9d1f6172c40d2c71e4ba548ad2f}{get\+State}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the user\textquotesingle{}s current state. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classUser_a446a64e63adafbc2e1428532275ad6a1}{get\+Name}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the user\textquotesingle{}s name. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classUser_aa53e81a49101e758f186a3e14a722092}{join\+Chat\+Room}} (\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$room)
-\item 
+\begin{DoxyCompactList}\small\item\em Joins a chat room. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classUser_a76cc4fc2337d257d5fa7738d98780a83}{leave\+Chat\+Room}} (\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$room)
-\item 
+\begin{DoxyCompactList}\small\item\em Leaves a chat room. \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$ $>$ \& \mbox{\hyperlink{classUser_a34011e57683397f7969815b4fa97f411}{get\+Chat\+Rooms}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets the list of chat rooms the user has joined. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUser_a3e639440f24223e35c8d47becf5e8b6f}{set\+Admin}} (bool admin)
+\begin{DoxyCompactList}\small\item\em Sets the user\textquotesingle{}s admin status. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUser_a27d71af169a33012aef321827e07b125}{get\+Admin}} () const
+\begin{DoxyCompactList}\small\item\em Gets the user\textquotesingle{}s admin status. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$ \mbox{\hyperlink{classUser_a2b5dad04230cdcb306c6a77aade8e16b}{create\+Chat\+Room}} (const std\+::string \&room\+Type)
+\begin{DoxyCompactList}\small\item\em Creates a new chat room (admin only) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -49,23 +60,49 @@ std\+::vector$<$ \mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$ $>$ \mbox{\
 std\+::list$<$ \mbox{\hyperlink{classCommand}{Command}} $\ast$ $>$ \mbox{\hyperlink{classUser_a389cd730b5b91eafd51a26f992db4684}{command\+Queue}}
 \item 
 \mbox{\hyperlink{classUserState}{User\+State}} $\ast$ \mbox{\hyperlink{classUser_a55b51c72bc2fca29843a15566454af8a}{current\+State}}
+\item 
+bool \mbox{\hyperlink{classUser_aa6f97f01f2b981aa9119727521959857}{is\+Admin}}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Abstract base class for all users in the system. 
+
+Manages user state, chat room membership, and command execution 
+
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classUser_aa07d4a3ff7450c7e7ab0ceee7d463fb6}\label{classUser_aa07d4a3ff7450c7e7ab0ceee7d463fb6}} 
+\mbox{\Hypertarget{classUser_af640c1b767e41500156bdc3c70181645}\label{classUser_af640c1b767e41500156bdc3c70181645}} 
 \index{User@{User}!User@{User}}
 \index{User@{User}!User@{User}}
 \doxysubsubsection{\texorpdfstring{User()}{User()}}
-{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{user\+Name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{user\+Name,  }\item[{bool}]{admin = {\ttfamily false} }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classUser_ac00b72ad64eb4149f7b21b9f5468c2b2}\label{classUser_ac00b72ad64eb4149f7b21b9f5468c2b2}} 
+
+
+Constructs a \mbox{\hyperlink{classUser}{User}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & The user\textquotesingle{}s name \\
+\hline
+{\em admin} & Whether the user is an admin (default\+: false)\\
+\hline
+{\em user\+Name} & The user\textquotesingle{}s display name \\
+\hline
+{\em admin} & Whether the user has admin privileges\\
+\hline
+\end{DoxyParams}
+Initializes user with \mbox{\hyperlink{classOnline}{Online}} state by default \mbox{\Hypertarget{classUser_ac00b72ad64eb4149f7b21b9f5468c2b2}\label{classUser_ac00b72ad64eb4149f7b21b9f5468c2b2}} 
 \index{User@{User}!````~User@{$\sim$User}}
 \index{````~User@{$\sim$User}!User@{User}}
 \doxysubsubsection{\texorpdfstring{$\sim$User()}{~User()}}
 {\footnotesize\ttfamily User\+::$\sim$\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
+
+Destructs the \mbox{\hyperlink{classUser}{User}}. 
+
+Cleans up state and all queued commands 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classUser_a40b0f3772906a022151037db5aaea30f}\label{classUser_a40b0f3772906a022151037db5aaea30f}} 
@@ -74,48 +111,158 @@ std\+::list$<$ \mbox{\hyperlink{classCommand}{Command}} $\ast$ $>$ \mbox{\hyperl
 \doxysubsubsection{\texorpdfstring{addCommand()}{addCommand()}}
 {\footnotesize\ttfamily void User\+::add\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCommand}{Command}} $\ast$}]{command }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classUser_a44388bdb8fb6accbe7fe143541c3d98d}\label{classUser_a44388bdb8fb6accbe7fe143541c3d98d}} 
+
+
+Adds a command to the command queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & Pointer to the command to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUser_a2b5dad04230cdcb306c6a77aade8e16b}\label{classUser_a2b5dad04230cdcb306c6a77aade8e16b}} 
+\index{User@{User}!createChatRoom@{createChatRoom}}
+\index{createChatRoom@{createChatRoom}!User@{User}}
+\doxysubsubsection{\texorpdfstring{createChatRoom()}{createChatRoom()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$ User\+::create\+Chat\+Room (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{room\+Type }\end{DoxyParamCaption})}
+
+
+
+Creates a new chat room (admin only) 
+
+Creates a custom chat room (admin only)
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Type} & The type/name of the room to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the new \mbox{\hyperlink{classChatRoom}{Chat\+Room}}, or nullptr if not admin
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Type} & The name/type of the room to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the new \mbox{\hyperlink{classCustomChatRoom}{Custom\+Chat\+Room}}, or nullptr if user lacks permissions
+\end{DoxyReturn}
+Only users with admin privileges can create chat rooms \mbox{\Hypertarget{classUser_a44388bdb8fb6accbe7fe143541c3d98d}\label{classUser_a44388bdb8fb6accbe7fe143541c3d98d}} 
 \index{User@{User}!executeAll@{executeAll}}
 \index{executeAll@{executeAll}!User@{User}}
 \doxysubsubsection{\texorpdfstring{executeAll()}{executeAll()}}
 {\footnotesize\ttfamily void User\+::execute\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Executes all commands in the queue. 
+
+Executes each command sequentially, then clears and deletes them \mbox{\Hypertarget{classUser_a27d71af169a33012aef321827e07b125}\label{classUser_a27d71af169a33012aef321827e07b125}} 
+\index{User@{User}!getAdmin@{getAdmin}}
+\index{getAdmin@{getAdmin}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getAdmin()}{getAdmin()}}
+{\footnotesize\ttfamily bool User\+::get\+Admin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the user\textquotesingle{}s admin status. 
+
+\begin{DoxyReturn}{Returns}
+true if user is admin, false otherwise 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classUser_a34011e57683397f7969815b4fa97f411}\label{classUser_a34011e57683397f7969815b4fa97f411}} 
 \index{User@{User}!getChatRooms@{getChatRooms}}
 \index{getChatRooms@{getChatRooms}!User@{User}}
 \doxysubsubsection{\texorpdfstring{getChatRooms()}{getChatRooms()}}
 {\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$ $>$ \& User\+::get\+Chat\+Rooms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Gets the list of chat rooms the user has joined. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the chat rooms vector 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classUser_a446a64e63adafbc2e1428532275ad6a1}\label{classUser_a446a64e63adafbc2e1428532275ad6a1}} 
 \index{User@{User}!getName@{getName}}
 \index{getName@{getName}!User@{User}}
 \doxysubsubsection{\texorpdfstring{getName()}{getName()}}
 {\footnotesize\ttfamily std\+::string User\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Gets the user\textquotesingle{}s name. 
+
+\begin{DoxyReturn}{Returns}
+The user\textquotesingle{}s name
+
+The user\textquotesingle{}s name string 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classUser_a7763a9d1f6172c40d2c71e4ba548ad2f}\label{classUser_a7763a9d1f6172c40d2c71e4ba548ad2f}} 
 \index{User@{User}!getState@{getState}}
 \index{getState@{getState}!User@{User}}
 \doxysubsubsection{\texorpdfstring{getState()}{getState()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classUserState}{User\+State}} $\ast$ User\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Gets the user\textquotesingle{}s current state. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the current \mbox{\hyperlink{classUserState}{User\+State}} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classUser_aa53e81a49101e758f186a3e14a722092}\label{classUser_aa53e81a49101e758f186a3e14a722092}} 
 \index{User@{User}!joinChatRoom@{joinChatRoom}}
 \index{joinChatRoom@{joinChatRoom}!User@{User}}
 \doxysubsubsection{\texorpdfstring{joinChatRoom()}{joinChatRoom()}}
 {\footnotesize\ttfamily void User\+::join\+Chat\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$}]{room }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classUser_a76cc4fc2337d257d5fa7738d98780a83}\label{classUser_a76cc4fc2337d257d5fa7738d98780a83}} 
+
+
+Joins a chat room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room} & Pointer to the chat room to join\\
+\hline
+{\em room} & Pointer to the chat room to join\\
+\hline
+\end{DoxyParams}
+Prevents joining the same room twice \mbox{\Hypertarget{classUser_a76cc4fc2337d257d5fa7738d98780a83}\label{classUser_a76cc4fc2337d257d5fa7738d98780a83}} 
 \index{User@{User}!leaveChatRoom@{leaveChatRoom}}
 \index{leaveChatRoom@{leaveChatRoom}!User@{User}}
 \doxysubsubsection{\texorpdfstring{leaveChatRoom()}{leaveChatRoom()}}
 {\footnotesize\ttfamily void User\+::leave\+Chat\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$}]{room }\end{DoxyParamCaption})}
 
+
+
+Leaves a chat room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room} & Pointer to the chat room to leave \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classUser_a0c568218381c6bf432c4ca348e6e1042}\label{classUser_a0c568218381c6bf432c4ca348e6e1042}} 
 \index{User@{User}!receive@{receive}}
 \index{receive@{receive}!User@{User}}
 \doxysubsubsection{\texorpdfstring{receive()}{receive()}}
 {\footnotesize\ttfamily virtual void User\+::receive (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{from\+User,  }\item[{\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$}]{room }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+
+
+Receives a message from a chat room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message content \\
+\hline
+{\em from\+User} & Pointer to the user who sent the message \\
+\hline
+{\em room} & Pointer to the chat room \\
+\hline
+\end{DoxyParams}
 
 
 Implemented in \mbox{\hyperlink{classUser3_ace09bf980fa7e3be1b3833a4c3b86424}{User3}}, \mbox{\hyperlink{classUser2_ac77cf3f2c0e272c8e72d5a1679bdd062}{User2}}, and \mbox{\hyperlink{classUser1_afb16dd51ef4917ba593ba3c091bd4cbb}{User1}}.
@@ -128,8 +275,36 @@ Implemented in \mbox{\hyperlink{classUser3_ace09bf980fa7e3be1b3833a4c3b86424}{Us
 
 
 
+Sends a message to a chat room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message content \\
+\hline
+{\em room} & Pointer to the destination chat room \\
+\hline
+\end{DoxyParams}
+
+
 Implemented in \mbox{\hyperlink{classUser3_a0c63197697fc339b501434c20cf2ff4f}{User3}}, \mbox{\hyperlink{classUser2_a6401bd8ad09885480a5367e3dd68a933}{User2}}, and \mbox{\hyperlink{classUser1_af3434a4fb2a93ce7e8d7df7ac8d24515}{User1}}.
 
+\mbox{\Hypertarget{classUser_a3e639440f24223e35c8d47becf5e8b6f}\label{classUser_a3e639440f24223e35c8d47becf5e8b6f}} 
+\index{User@{User}!setAdmin@{setAdmin}}
+\index{setAdmin@{setAdmin}!User@{User}}
+\doxysubsubsection{\texorpdfstring{setAdmin()}{setAdmin()}}
+{\footnotesize\ttfamily void User\+::set\+Admin (\begin{DoxyParamCaption}\item[{bool}]{admin }\end{DoxyParamCaption})}
+
+
+
+Sets the user\textquotesingle{}s admin status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em admin} & Whether the user should be an admin\\
+\hline
+{\em admin} & true to grant admin privileges, false to revoke \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classUser_abb7be0a297d66617dbf7e91c5177da88}\label{classUser_abb7be0a297d66617dbf7e91c5177da88}} 
 \index{User@{User}!setState@{setState}}
 \index{setState@{setState}!User@{User}}
@@ -137,6 +312,17 @@ Implemented in \mbox{\hyperlink{classUser3_a0c63197697fc339b501434c20cf2ff4f}{Us
 {\footnotesize\ttfamily void User\+::set\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUserState}{User\+State}} $\ast$}]{new\+State }\end{DoxyParamCaption})}
 
 
+
+Sets the user\textquotesingle{}s state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+State} & Pointer to the new state\\
+\hline
+{\em new\+State} & Pointer to the new state\\
+\hline
+\end{DoxyParams}
+Deletes the old state and replaces it with the new one 
 
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{classUser_a58505cd2204f4e0876a076631c0fd287}\label{classUser_a58505cd2204f4e0876a076631c0fd287}} 
@@ -156,6 +342,12 @@ Implemented in \mbox{\hyperlink{classUser3_a0c63197697fc339b501434c20cf2ff4f}{Us
 \index{currentState@{currentState}!User@{User}}
 \doxysubsubsection{\texorpdfstring{currentState}{currentState}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classUserState}{User\+State}}$\ast$ User\+::current\+State\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classUser_aa6f97f01f2b981aa9119727521959857}\label{classUser_aa6f97f01f2b981aa9119727521959857}} 
+\index{User@{User}!isAdmin@{isAdmin}}
+\index{isAdmin@{isAdmin}!User@{User}}
+\doxysubsubsection{\texorpdfstring{isAdmin}{isAdmin}}
+{\footnotesize\ttfamily bool User\+::is\+Admin\hspace{0.3cm}{\ttfamily [protected]}}
 
 \mbox{\Hypertarget{classUser_a085d8d69282b6298964eab8351584536}\label{classUser_a085d8d69282b6298964eab8351584536}} 
 \index{User@{User}!name@{name}}

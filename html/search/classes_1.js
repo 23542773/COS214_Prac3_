@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['chathistoryiterator_57',['ChatHistoryIterator',['../classChatHistoryIterator.html',1,'']]],
-  ['chatroom_58',['ChatRoom',['../classChatRoom.html',1,'']]],
-  ['command_59',['Command',['../classCommand.html',1,'']]],
-  ['ctrlcat_60',['CtrlCat',['../classCtrlCat.html',1,'']]]
+  ['chathistoryiterator_63',['ChatHistoryIterator',['../classChatHistoryIterator.html',1,'']]],
+  ['chatroom_64',['ChatRoom',['../classChatRoom.html',1,'']]],
+  ['command_65',['Command',['../classCommand.html',1,'']]],
+  ['ctrlcat_66',['CtrlCat',['../classCtrlCat.html',1,'']]],
+  ['customchatroom_67',['CustomChatRoom',['../classCustomChatRoom.html',1,'']]]
 ];

@@ -69,6 +69,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Concrete command for sending messages to chat room users.  
+ <a href="classSendMessageCommand.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="PetSpace_8h_source.html">PetSpace.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SendMessageCommand:</div>
@@ -84,11 +87,14 @@ Collaboration diagram for SendMessageCommand:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a55a31ff1f34c2715025bd607dd532d71"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSendMessageCommand.html#a55a31ff1f34c2715025bd607dd532d71">SendMessageCommand</a> (<a class="el" href="classChatRoom.html">ChatRoom</a> *room, <a class="el" href="classUser.html">User</a> *user, const std::string &amp;msg)</td></tr>
+<tr class="memdesc:a55a31ff1f34c2715025bd607dd532d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classSendMessageCommand.html" title="Concrete command for sending messages to chat room users.">SendMessageCommand</a>.  <a href="classSendMessageCommand.html#a55a31ff1f34c2715025bd607dd532d71">More...</a><br /></td></tr>
 <tr class="separator:a55a31ff1f34c2715025bd607dd532d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6261a5ef02ead22e13d01ea5fc10e76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSendMessageCommand.html#ae6261a5ef02ead22e13d01ea5fc10e76">execute</a> () override</td></tr>
+<tr class="memdesc:ae6261a5ef02ead22e13d01ea5fc10e76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the send message command.  <a href="classSendMessageCommand.html#ae6261a5ef02ead22e13d01ea5fc10e76">More...</a><br /></td></tr>
 <tr class="separator:ae6261a5ef02ead22e13d01ea5fc10e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCommand"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCommand')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCommand.html">Command</a></td></tr>
 <tr class="memitem:aea62c488b914842c63b67ef593dade27 inherit pub_methods_classCommand"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.html#aea62c488b914842c63b67ef593dade27">Command</a> (<a class="el" href="classChatRoom.html">ChatRoom</a> *room, <a class="el" href="classUser.html">User</a> *user, const std::string &amp;msg)</td></tr>
+<tr class="memdesc:aea62c488b914842c63b67ef593dade27 inherit pub_methods_classCommand"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classCommand.html" title="Abstract base class for commands in the Command pattern.">Command</a>.  <a href="classCommand.html#aea62c488b914842c63b67ef593dade27">More...</a><br /></td></tr>
 <tr class="separator:aea62c488b914842c63b67ef593dade27 inherit pub_methods_classCommand"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa545a53d35818f9efb936daf3fa16c61 inherit pub_methods_classCommand"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.html#aa545a53d35818f9efb936daf3fa16c61">~Command</a> ()=default</td></tr>
 <tr class="separator:aa545a53d35818f9efb936daf3fa16c61 inherit pub_methods_classCommand"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,7 +109,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:aefb89941a5b2b0b0648cf7b98bb37762 inherit pro_attribs_classCommand"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.html#aefb89941a5b2b0b0648cf7b98bb37762">message</a></td></tr>
 <tr class="separator:aefb89941a5b2b0b0648cf7b98bb37762 inherit pro_attribs_classCommand"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Concrete command for sending messages to chat room users. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a55a31ff1f34c2715025bd607dd532d71"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a55a31ff1f34c2715025bd607dd532d71">&#9670;&nbsp;</a></span>SendMessageCommand()</h2>
 
@@ -136,6 +144,19 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs a <a class="el" href="classSendMessageCommand.html" title="Concrete command for sending messages to chat room users.">SendMessageCommand</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">room</td><td>Pointer to the chat room </td></tr>
+    <tr><td class="paramname">user</td><td>Pointer to the user </td></tr>
+    <tr><td class="paramname">msg</td><td>The message string</td></tr>
+    <tr><td class="paramname">room</td><td>Pointer to the chat room </td></tr>
+    <tr><td class="paramname">user</td><td>Pointer to the user sending the message </td></tr>
+    <tr><td class="paramname">msg</td><td>The message to send </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -161,6 +182,9 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Executes the send message command. </p>
+<p>Sends the message to all users in the chat room via the mediator </p>
 
 <p>Implements <a class="el" href="classCommand.html#a6fd7d9bd8df8bfc881e4d6c7cd1878b7">Command</a>.</p>
 

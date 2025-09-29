@@ -69,6 +69,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Abstract iterator interface for traversing collections.  
+ <a href="classIterator.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="PetSpace_8h_source.html">PetSpace.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Iterator:</div>
@@ -81,13 +84,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4c28388b53ec9c8a502aeccf13295899"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIterator.html#a4c28388b53ec9c8a502aeccf13295899">~Iterator</a> ()=default</td></tr>
 <tr class="separator:a4c28388b53ec9c8a502aeccf13295899"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3a1f5cb124b2b89e4cc41900ffd83f6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIterator.html#ac3a1f5cb124b2b89e4cc41900ffd83f6">hasNext</a> ()=0</td></tr>
+<tr class="memdesc:ac3a1f5cb124b2b89e4cc41900ffd83f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there are more elements to iterate.  <a href="classIterator.html#ac3a1f5cb124b2b89e4cc41900ffd83f6">More...</a><br /></td></tr>
 <tr class="separator:ac3a1f5cb124b2b89e4cc41900ffd83f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a588d1e1bb213b4549d2f37dab5230481"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIterator.html#a588d1e1bb213b4549d2f37dab5230481">next</a> ()=0</td></tr>
+<tr class="memdesc:a588d1e1bb213b4549d2f37dab5230481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next element in the collection.  <a href="classIterator.html#a588d1e1bb213b4549d2f37dab5230481">More...</a><br /></td></tr>
 <tr class="separator:a588d1e1bb213b4549d2f37dab5230481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32850eb6f82277c063362f18ac36affe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIterator.html#a32850eb6f82277c063362f18ac36affe">reset</a> ()=0</td></tr>
+<tr class="memdesc:a32850eb6f82277c063362f18ac36affe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the iterator to the beginning.  <a href="classIterator.html#a32850eb6f82277c063362f18ac36affe">More...</a><br /></td></tr>
 <tr class="separator:a32850eb6f82277c063362f18ac36affe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract iterator interface for traversing collections. </p>
+<p>Provides a way to access elements of an aggregate object sequentially without exposing its underlying representation </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4c28388b53ec9c8a502aeccf13295899"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c28388b53ec9c8a502aeccf13295899">&#9670;&nbsp;</a></span>~Iterator()</h2>
 
@@ -137,6 +146,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Checks if there are more elements to iterate. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if more elements exist, false otherwise </dd></dl>
+
 <p>Implemented in <a class="el" href="classChatHistoryIterator.html#a89ac181b508ba35a8bd61d84242fd860">ChatHistoryIterator</a>.</p>
 
 </div>
@@ -164,6 +176,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the next element in the collection. </p>
+<dl class="section return"><dt>Returns</dt><dd>The next string element </dd></dl>
+
 <p>Implemented in <a class="el" href="classChatHistoryIterator.html#add4af2837bf1bc07e8ed81424cd719a9">ChatHistoryIterator</a>.</p>
 
 </div>
@@ -190,6 +205,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Resets the iterator to the beginning. </p>
 
 <p>Implemented in <a class="el" href="classChatHistoryIterator.html#a853ecc9b44441366b123eb2ab8b85495">ChatHistoryIterator</a>.</p>
 

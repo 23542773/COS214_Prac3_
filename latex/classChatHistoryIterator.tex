@@ -2,6 +2,11 @@
 \label{classChatHistoryIterator}\index{ChatHistoryIterator@{ChatHistoryIterator}}
 
 
+Concrete iterator for traversing chat history.  
+
+
+
+
 {\ttfamily \#include $<$Pet\+Space.\+h$>$}
 
 
@@ -16,14 +21,19 @@ Collaboration diagram for Chat\+History\+Iterator\+:
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classChatHistoryIterator_a6b21f0403c5519d8d9cbe86370201486}{Chat\+History\+Iterator}} (std\+::vector$<$ std\+::string $>$ $\ast$history)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classChatHistoryIterator}{Chat\+History\+Iterator}}. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classChatHistoryIterator_a89ac181b508ba35a8bd61d84242fd860}{has\+Next}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Checks if there are more messages to iterate. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classChatHistoryIterator_add4af2837bf1bc07e8ed81424cd719a9}{next}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the next message in the chat history. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classChatHistoryIterator_a853ecc9b44441366b123eb2ab8b85495}{reset}} () override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Resets the iterator to the beginning. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Concrete iterator for traversing chat history. 
+
+Implements the \mbox{\hyperlink{classIterator}{Iterator}} interface to traverse through chat messages 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classChatHistoryIterator_a6b21f0403c5519d8d9cbe86370201486}\label{classChatHistoryIterator_a6b21f0403c5519d8d9cbe86370201486}} 
@@ -34,6 +44,17 @@ void \mbox{\hyperlink{classChatHistoryIterator_a853ecc9b44441366b123eb2ab8b85495
 
 
 
+Constructs a \mbox{\hyperlink{classChatHistoryIterator}{Chat\+History\+Iterator}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em history} & Pointer to the chat history vector\\
+\hline
+{\em history} & Pointer to the vector of chat messages \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classChatHistoryIterator_a89ac181b508ba35a8bd61d84242fd860}\label{classChatHistoryIterator_a89ac181b508ba35a8bd61d84242fd860}} 
 \index{ChatHistoryIterator@{ChatHistoryIterator}!hasNext@{hasNext}}
@@ -41,6 +62,13 @@ void \mbox{\hyperlink{classChatHistoryIterator_a853ecc9b44441366b123eb2ab8b85495
 \doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}}
 {\footnotesize\ttfamily bool Chat\+History\+Iterator\+::has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Checks if there are more messages to iterate. 
+
+\begin{DoxyReturn}{Returns}
+true if more messages exist, false otherwise 
+\end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classIterator_ac3a1f5cb124b2b89e4cc41900ffd83f6}{Iterator}}.
@@ -53,6 +81,13 @@ Implements \mbox{\hyperlink{classIterator_ac3a1f5cb124b2b89e4cc41900ffd83f6}{Ite
 
 
 
+Returns the next message in the chat history. 
+
+\begin{DoxyReturn}{Returns}
+The next message string, or empty string if none 
+\end{DoxyReturn}
+
+
 Implements \mbox{\hyperlink{classIterator_a588d1e1bb213b4549d2f37dab5230481}{Iterator}}.
 
 \mbox{\Hypertarget{classChatHistoryIterator_a853ecc9b44441366b123eb2ab8b85495}\label{classChatHistoryIterator_a853ecc9b44441366b123eb2ab8b85495}} 
@@ -60,6 +95,10 @@ Implements \mbox{\hyperlink{classIterator_a588d1e1bb213b4549d2f37dab5230481}{Ite
 \index{reset@{reset}!ChatHistoryIterator@{ChatHistoryIterator}}
 \doxysubsubsection{\texorpdfstring{reset()}{reset()}}
 {\footnotesize\ttfamily void Chat\+History\+Iterator\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Resets the iterator to the beginning. 
 
 
 

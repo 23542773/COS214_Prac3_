@@ -2,6 +2,11 @@
 \label{classSendMessageCommand}\index{SendMessageCommand@{SendMessageCommand}}
 
 
+Concrete command for sending messages to chat room users.  
+
+
+
+
 {\ttfamily \#include $<$Pet\+Space.\+h$>$}
 
 
@@ -16,11 +21,14 @@ Collaboration diagram for Send\+Message\+Command\+:
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classSendMessageCommand_a55a31ff1f34c2715025bd607dd532d71}{Send\+Message\+Command}} (\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$room, \mbox{\hyperlink{classUser}{User}} $\ast$user, const std\+::string \&msg)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classSendMessageCommand}{Send\+Message\+Command}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSendMessageCommand_ae6261a5ef02ead22e13d01ea5fc10e76}{execute}} () override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Executes the send message command. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
+
+\doxysubsection{Detailed Description}
+Concrete command for sending messages to chat room users. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classSendMessageCommand_a55a31ff1f34c2715025bd607dd532d71}\label{classSendMessageCommand_a55a31ff1f34c2715025bd607dd532d71}} 
@@ -31,6 +39,25 @@ void \mbox{\hyperlink{classSendMessageCommand_ae6261a5ef02ead22e13d01ea5fc10e76}
 
 
 
+Constructs a \mbox{\hyperlink{classSendMessageCommand}{Send\+Message\+Command}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room} & Pointer to the chat room \\
+\hline
+{\em user} & Pointer to the user \\
+\hline
+{\em msg} & The message string\\
+\hline
+{\em room} & Pointer to the chat room \\
+\hline
+{\em user} & Pointer to the user sending the message \\
+\hline
+{\em msg} & The message to send \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classSendMessageCommand_ae6261a5ef02ead22e13d01ea5fc10e76}\label{classSendMessageCommand_ae6261a5ef02ead22e13d01ea5fc10e76}} 
 \index{SendMessageCommand@{SendMessageCommand}!execute@{execute}}
@@ -39,6 +66,10 @@ void \mbox{\hyperlink{classSendMessageCommand_ae6261a5ef02ead22e13d01ea5fc10e76}
 {\footnotesize\ttfamily void Send\+Message\+Command\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
+
+Executes the send message command. 
+
+Sends the message to all users in the chat room via the mediator 
 
 Implements \mbox{\hyperlink{classCommand_a6fd7d9bd8df8bfc881e4d6c7cd1878b7}{Command}}.
 

@@ -2,6 +2,11 @@
 \label{classOffline}\index{Offline@{Offline}}
 
 
+Concrete state representing an offline user.  
+
+
+
+
 {\ttfamily \#include $<$Pet\+Space.\+h$>$}
 
 
@@ -16,12 +21,17 @@ Collaboration diagram for Offline\+:
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classOffline_acc660c007e2bf059e349353b60ef8a46}{handle\+Message}} (\mbox{\hyperlink{classUser}{User}} $\ast$user, const std\+::string \&message) override
-\item 
+\begin{DoxyCompactList}\small\item\em Handles message reception when user is offline (cannot receive) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classOffline_ac798a9011241b1e01d2c2d3f28ef130f}{change\+State}} (\mbox{\hyperlink{classUser}{User}} $\ast$user, \mbox{\hyperlink{classUserState}{User\+State}} $\ast$new\+State) override
-\item 
+\begin{DoxyCompactList}\small\item\em Changes user state from offline to another state. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classOffline_a06f2be9fa41d76f0f22cbab1c5a2d5ef}{get\+State\+Name}} () const override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns the state name. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Concrete state representing an offline user. 
+
+When offline, users cannot receive messages 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classOffline_ac798a9011241b1e01d2c2d3f28ef130f}\label{classOffline_ac798a9011241b1e01d2c2d3f28ef130f}} 
@@ -30,6 +40,17 @@ std\+::string \mbox{\hyperlink{classOffline_a06f2be9fa41d76f0f22cbab1c5a2d5ef}{g
 \doxysubsubsection{\texorpdfstring{changeState()}{changeState()}}
 {\footnotesize\ttfamily void Offline\+::change\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user,  }\item[{\mbox{\hyperlink{classUserState}{User\+State}} $\ast$}]{new\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Changes user state from offline to another state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Pointer to the user \\
+\hline
+{\em new\+State} & Pointer to the new state \\
+\hline
+\end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{classUserState_a1ce511f75a030bf8dd5c7830756a78d3}{User\+State}}.
@@ -42,6 +63,13 @@ Implements \mbox{\hyperlink{classUserState_a1ce511f75a030bf8dd5c7830756a78d3}{Us
 
 
 
+Returns the state name. 
+
+\begin{DoxyReturn}{Returns}
+String \char`\"{}\+Offline\char`\"{} 
+\end{DoxyReturn}
+
+
 Implements \mbox{\hyperlink{classUserState_a3deea93340663964226a23015fa7e85e}{User\+State}}.
 
 \mbox{\Hypertarget{classOffline_acc660c007e2bf059e349353b60ef8a46}\label{classOffline_acc660c007e2bf059e349353b60ef8a46}} 
@@ -50,6 +78,17 @@ Implements \mbox{\hyperlink{classUserState_a3deea93340663964226a23015fa7e85e}{Us
 \doxysubsubsection{\texorpdfstring{handleMessage()}{handleMessage()}}
 {\footnotesize\ttfamily void Offline\+::handle\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user,  }\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Handles message reception when user is offline (cannot receive) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Pointer to the user \\
+\hline
+{\em message} & The message content (unused) \\
+\hline
+\end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{classUserState_a5764b40fb31d1edf2729300f03c99346}{User\+State}}.

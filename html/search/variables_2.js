@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['message_117',['message',['../classCommand.html#aefb89941a5b2b0b0648cf7b98bb37762',1,'Command']]]
+  ['isadmin_129',['isAdmin',['../classUser.html#aa6f97f01f2b981aa9119727521959857',1,'User']]]
 ];

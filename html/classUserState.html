@@ -69,6 +69,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Abstract base class for user states in the State pattern.  
+ <a href="classUserState.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="PetSpace_8h_source.html">PetSpace.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for UserState:</div>
@@ -81,13 +84,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a29d4aa7cf6918c53120ac0e43d096877"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUserState.html#a29d4aa7cf6918c53120ac0e43d096877">~UserState</a> ()=default</td></tr>
 <tr class="separator:a29d4aa7cf6918c53120ac0e43d096877"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5764b40fb31d1edf2729300f03c99346"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUserState.html#a5764b40fb31d1edf2729300f03c99346">handleMessage</a> (<a class="el" href="classUser.html">User</a> *user, const std::string &amp;message)=0</td></tr>
+<tr class="memdesc:a5764b40fb31d1edf2729300f03c99346"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles incoming messages based on current state.  <a href="classUserState.html#a5764b40fb31d1edf2729300f03c99346">More...</a><br /></td></tr>
 <tr class="separator:a5764b40fb31d1edf2729300f03c99346"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ce511f75a030bf8dd5c7830756a78d3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUserState.html#a1ce511f75a030bf8dd5c7830756a78d3">changeState</a> (<a class="el" href="classUser.html">User</a> *user, <a class="el" href="classUserState.html">UserState</a> *newState)=0</td></tr>
+<tr class="memdesc:a1ce511f75a030bf8dd5c7830756a78d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the user's state.  <a href="classUserState.html#a1ce511f75a030bf8dd5c7830756a78d3">More...</a><br /></td></tr>
 <tr class="separator:a1ce511f75a030bf8dd5c7830756a78d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3deea93340663964226a23015fa7e85e"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUserState.html#a3deea93340663964226a23015fa7e85e">getStateName</a> () const =0</td></tr>
+<tr class="memdesc:a3deea93340663964226a23015fa7e85e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the name of the current state.  <a href="classUserState.html#a3deea93340663964226a23015fa7e85e">More...</a><br /></td></tr>
 <tr class="separator:a3deea93340663964226a23015fa7e85e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract base class for user states in the State pattern. </p>
+<p>Defines the interface for concrete state classes that handle user behavior based on their current status (<a class="el" href="classOnline.html" title="Concrete state representing an online user.">Online</a>, <a class="el" href="classOffline.html" title="Concrete state representing an offline user.">Offline</a>, <a class="el" href="classBusy.html" title="Concrete state representing a busy user.">Busy</a>) </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a29d4aa7cf6918c53120ac0e43d096877"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a29d4aa7cf6918c53120ac0e43d096877">&#9670;&nbsp;</a></span>~UserState()</h2>
 
@@ -148,6 +157,15 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Changes the user's state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td>Pointer to the user whose state is changing </td></tr>
+    <tr><td class="paramname">newState</td><td>Pointer to the new state </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classBusy.html#a730a4f4aca2ead373776a44b581ac378">Busy</a>, <a class="el" href="classOffline.html#ac798a9011241b1e01d2c2d3f28ef130f">Offline</a>, and <a class="el" href="classOnline.html#a8f3c90cf3271f05b6e4e05707a58af79">Online</a>.</p>
 
 </div>
@@ -174,6 +192,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets the name of the current state. </p>
+<dl class="section return"><dt>Returns</dt><dd>String representation of the state name </dd></dl>
 
 <p>Implemented in <a class="el" href="classBusy.html#a48e1f97767912a01036fcc248213a151">Busy</a>, <a class="el" href="classOffline.html#a06f2be9fa41d76f0f22cbab1c5a2d5ef">Offline</a>, and <a class="el" href="classOnline.html#a504140ddce7ba69006ff285dce1fff0a">Online</a>.</p>
 
@@ -212,6 +233,15 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Handles incoming messages based on current state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td>Pointer to the user receiving the message </td></tr>
+    <tr><td class="paramname">message</td><td>The message content </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classBusy.html#af57fc4ec5273103526e3ec3c2f470a9a">Busy</a>, <a class="el" href="classOffline.html#acc660c007e2bf059e349353b60ef8a46">Offline</a>, and <a class="el" href="classOnline.html#a58faeb263ab5dc19b995e3debfb2c5cc">Online</a>.</p>
 

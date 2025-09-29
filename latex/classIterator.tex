@@ -2,6 +2,11 @@
 \label{classIterator}\index{Iterator@{Iterator}}
 
 
+Abstract iterator interface for traversing collections.  
+
+
+
+
 {\ttfamily \#include $<$Pet\+Space.\+h$>$}
 
 
@@ -14,12 +19,17 @@ Inheritance diagram for Iterator\+:
 virtual \mbox{\hyperlink{classIterator_a4c28388b53ec9c8a502aeccf13295899}{$\sim$\+Iterator}} ()=default
 \item 
 virtual bool \mbox{\hyperlink{classIterator_ac3a1f5cb124b2b89e4cc41900ffd83f6}{has\+Next}} ()=0
-\item 
+\begin{DoxyCompactList}\small\item\em Checks if there are more elements to iterate. \end{DoxyCompactList}\item 
 virtual std\+::string \mbox{\hyperlink{classIterator_a588d1e1bb213b4549d2f37dab5230481}{next}} ()=0
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the next element in the collection. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classIterator_a32850eb6f82277c063362f18ac36affe}{reset}} ()=0
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Resets the iterator to the beginning. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Abstract iterator interface for traversing collections. 
+
+Provides a way to access elements of an aggregate object sequentially without exposing its underlying representation 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classIterator_a4c28388b53ec9c8a502aeccf13295899}\label{classIterator_a4c28388b53ec9c8a502aeccf13295899}} 
@@ -39,6 +49,13 @@ virtual void \mbox{\hyperlink{classIterator_a32850eb6f82277c063362f18ac36affe}{r
 
 
 
+Checks if there are more elements to iterate. 
+
+\begin{DoxyReturn}{Returns}
+true if more elements exist, false otherwise 
+\end{DoxyReturn}
+
+
 Implemented in \mbox{\hyperlink{classChatHistoryIterator_a89ac181b508ba35a8bd61d84242fd860}{Chat\+History\+Iterator}}.
 
 \mbox{\Hypertarget{classIterator_a588d1e1bb213b4549d2f37dab5230481}\label{classIterator_a588d1e1bb213b4549d2f37dab5230481}} 
@@ -49,6 +66,13 @@ Implemented in \mbox{\hyperlink{classChatHistoryIterator_a89ac181b508ba35a8bd61d
 
 
 
+Returns the next element in the collection. 
+
+\begin{DoxyReturn}{Returns}
+The next string element 
+\end{DoxyReturn}
+
+
 Implemented in \mbox{\hyperlink{classChatHistoryIterator_add4af2837bf1bc07e8ed81424cd719a9}{Chat\+History\+Iterator}}.
 
 \mbox{\Hypertarget{classIterator_a32850eb6f82277c063362f18ac36affe}\label{classIterator_a32850eb6f82277c063362f18ac36affe}} 
@@ -56,6 +80,10 @@ Implemented in \mbox{\hyperlink{classChatHistoryIterator_add4af2837bf1bc07e8ed81
 \index{reset@{reset}!Iterator@{Iterator}}
 \doxysubsubsection{\texorpdfstring{reset()}{reset()}}
 {\footnotesize\ttfamily virtual void Iterator\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Resets the iterator to the beginning. 
 
 
 

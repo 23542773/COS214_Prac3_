@@ -2,6 +2,11 @@
 \label{classBusy}\index{Busy@{Busy}}
 
 
+Concrete state representing a busy user.  
+
+
+
+
 {\ttfamily \#include $<$Pet\+Space.\+h$>$}
 
 
@@ -16,12 +21,17 @@ Collaboration diagram for Busy\+:
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classBusy_af57fc4ec5273103526e3ec3c2f470a9a}{handle\+Message}} (\mbox{\hyperlink{classUser}{User}} $\ast$user, const std\+::string \&message) override
-\item 
+\begin{DoxyCompactList}\small\item\em Handles message reception when user is busy (message stored) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBusy_a730a4f4aca2ead373776a44b581ac378}{change\+State}} (\mbox{\hyperlink{classUser}{User}} $\ast$user, \mbox{\hyperlink{classUserState}{User\+State}} $\ast$new\+State) override
-\item 
+\begin{DoxyCompactList}\small\item\em Changes user state from busy to another state. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classBusy_a48e1f97767912a01036fcc248213a151}{get\+State\+Name}} () const override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns the state name. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Concrete state representing a busy user. 
+
+When busy, messages are stored but not immediately processed 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classBusy_a730a4f4aca2ead373776a44b581ac378}\label{classBusy_a730a4f4aca2ead373776a44b581ac378}} 
@@ -30,6 +40,17 @@ std\+::string \mbox{\hyperlink{classBusy_a48e1f97767912a01036fcc248213a151}{get\
 \doxysubsubsection{\texorpdfstring{changeState()}{changeState()}}
 {\footnotesize\ttfamily void Busy\+::change\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user,  }\item[{\mbox{\hyperlink{classUserState}{User\+State}} $\ast$}]{new\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Changes user state from busy to another state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Pointer to the user \\
+\hline
+{\em new\+State} & Pointer to the new state \\
+\hline
+\end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{classUserState_a1ce511f75a030bf8dd5c7830756a78d3}{User\+State}}.
@@ -42,6 +63,13 @@ Implements \mbox{\hyperlink{classUserState_a1ce511f75a030bf8dd5c7830756a78d3}{Us
 
 
 
+Returns the state name. 
+
+\begin{DoxyReturn}{Returns}
+String \char`\"{}\+Busy\char`\"{} 
+\end{DoxyReturn}
+
+
 Implements \mbox{\hyperlink{classUserState_a3deea93340663964226a23015fa7e85e}{User\+State}}.
 
 \mbox{\Hypertarget{classBusy_af57fc4ec5273103526e3ec3c2f470a9a}\label{classBusy_af57fc4ec5273103526e3ec3c2f470a9a}} 
@@ -50,6 +78,17 @@ Implements \mbox{\hyperlink{classUserState_a3deea93340663964226a23015fa7e85e}{Us
 \doxysubsubsection{\texorpdfstring{handleMessage()}{handleMessage()}}
 {\footnotesize\ttfamily void Busy\+::handle\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user,  }\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Handles message reception when user is busy (message stored) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Pointer to the user \\
+\hline
+{\em message} & The message content \\
+\hline
+\end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{classUserState_a5764b40fb31d1edf2729300f03c99346}{User\+State}}.

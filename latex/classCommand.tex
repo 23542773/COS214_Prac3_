@@ -2,6 +2,11 @@
 \label{classCommand}\index{Command@{Command}}
 
 
+Abstract base class for commands in the \mbox{\hyperlink{classCommand}{Command}} pattern.  
+
+
+
+
 {\ttfamily \#include $<$Pet\+Space.\+h$>$}
 
 
@@ -16,7 +21,7 @@ Collaboration diagram for Command\+:
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classCommand_aea62c488b914842c63b67ef593dade27}{Command}} (\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$room, \mbox{\hyperlink{classUser}{User}} $\ast$user, const std\+::string \&msg)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classCommand}{Command}}. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classCommand_aa545a53d35818f9efb936daf3fa16c61}{$\sim$\+Command}} ()=default
 \item 
 virtual void \mbox{\hyperlink{classCommand_a6fd7d9bd8df8bfc881e4d6c7cd1878b7}{execute}} ()=0
@@ -32,6 +37,11 @@ std\+::string \mbox{\hyperlink{classCommand_aefb89941a5b2b0b0648cf7b98bb37762}{m
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Abstract base class for commands in the \mbox{\hyperlink{classCommand}{Command}} pattern. 
+
+Encapsulates a request as an object, allowing parameterization and queuing of requests 
+
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classCommand_aea62c488b914842c63b67ef593dade27}\label{classCommand_aea62c488b914842c63b67ef593dade27}} 
 \index{Command@{Command}!Command@{Command}}
@@ -39,6 +49,27 @@ std\+::string \mbox{\hyperlink{classCommand_aefb89941a5b2b0b0648cf7b98bb37762}{m
 \doxysubsubsection{\texorpdfstring{Command()}{Command()}}
 {\footnotesize\ttfamily Command\+::\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$}]{room,  }\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user,  }\item[{const std\+::string \&}]{msg }\end{DoxyParamCaption})}
 
+
+
+Constructs a \mbox{\hyperlink{classCommand}{Command}}. 
+
+Constructs a \mbox{\hyperlink{classCommand}{Command}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em room} & Pointer to the chat room \\
+\hline
+{\em user} & Pointer to the user \\
+\hline
+{\em msg} & The message string\\
+\hline
+{\em room} & Pointer to the chat room \\
+\hline
+{\em user} & Pointer to the user initiating the command \\
+\hline
+{\em msg} & The message content \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classCommand_aa545a53d35818f9efb936daf3fa16c61}\label{classCommand_aa545a53d35818f9efb936daf3fa16c61}} 
 \index{Command@{Command}!````~Command@{$\sim$Command}}
 \index{````~Command@{$\sim$Command}!Command@{Command}}

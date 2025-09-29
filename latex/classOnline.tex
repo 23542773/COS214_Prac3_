@@ -2,6 +2,11 @@
 \label{classOnline}\index{Online@{Online}}
 
 
+Concrete state representing an online user.  
+
+
+
+
 {\ttfamily \#include $<$Pet\+Space.\+h$>$}
 
 
@@ -16,12 +21,17 @@ Collaboration diagram for Online\+:
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classOnline_a58faeb263ab5dc19b995e3debfb2c5cc}{handle\+Message}} (\mbox{\hyperlink{classUser}{User}} $\ast$user, const std\+::string \&message) override
-\item 
+\begin{DoxyCompactList}\small\item\em Handles message reception when user is online. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classOnline_a8f3c90cf3271f05b6e4e05707a58af79}{change\+State}} (\mbox{\hyperlink{classUser}{User}} $\ast$user, \mbox{\hyperlink{classUserState}{User\+State}} $\ast$new\+State) override
-\item 
+\begin{DoxyCompactList}\small\item\em Changes user state from online to another state. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classOnline_a504140ddce7ba69006ff285dce1fff0a}{get\+State\+Name}} () const override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns the state name. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Concrete state representing an online user. 
+
+When online, users can receive and process messages normally 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classOnline_a8f3c90cf3271f05b6e4e05707a58af79}\label{classOnline_a8f3c90cf3271f05b6e4e05707a58af79}} 
@@ -30,6 +40,17 @@ std\+::string \mbox{\hyperlink{classOnline_a504140ddce7ba69006ff285dce1fff0a}{ge
 \doxysubsubsection{\texorpdfstring{changeState()}{changeState()}}
 {\footnotesize\ttfamily void Online\+::change\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user,  }\item[{\mbox{\hyperlink{classUserState}{User\+State}} $\ast$}]{new\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Changes user state from online to another state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Pointer to the user \\
+\hline
+{\em new\+State} & Pointer to the new state \\
+\hline
+\end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{classUserState_a1ce511f75a030bf8dd5c7830756a78d3}{User\+State}}.
@@ -42,6 +63,13 @@ Implements \mbox{\hyperlink{classUserState_a1ce511f75a030bf8dd5c7830756a78d3}{Us
 
 
 
+Returns the state name. 
+
+\begin{DoxyReturn}{Returns}
+String \char`\"{}\+Online\char`\"{} 
+\end{DoxyReturn}
+
+
 Implements \mbox{\hyperlink{classUserState_a3deea93340663964226a23015fa7e85e}{User\+State}}.
 
 \mbox{\Hypertarget{classOnline_a58faeb263ab5dc19b995e3debfb2c5cc}\label{classOnline_a58faeb263ab5dc19b995e3debfb2c5cc}} 
@@ -50,6 +78,17 @@ Implements \mbox{\hyperlink{classUserState_a3deea93340663964226a23015fa7e85e}{Us
 \doxysubsubsection{\texorpdfstring{handleMessage()}{handleMessage()}}
 {\footnotesize\ttfamily void Online\+::handle\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user,  }\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Handles message reception when user is online. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Pointer to the user receiving the message \\
+\hline
+{\em message} & The message content \\
+\hline
+\end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{classUserState_a5764b40fb31d1edf2729300f03c99346}{User\+State}}.

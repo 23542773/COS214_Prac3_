@@ -70,6 +70,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Abstract base class for commands in the <a class="el" href="classCommand.html" title="Abstract base class for commands in the Command pattern.">Command</a> pattern.  
+ <a href="classCommand.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="PetSpace_8h_source.html">PetSpace.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Command:</div>
@@ -85,6 +88,7 @@ Collaboration diagram for Command:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aea62c488b914842c63b67ef593dade27"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.html#aea62c488b914842c63b67ef593dade27">Command</a> (<a class="el" href="classChatRoom.html">ChatRoom</a> *room, <a class="el" href="classUser.html">User</a> *user, const std::string &amp;msg)</td></tr>
+<tr class="memdesc:aea62c488b914842c63b67ef593dade27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classCommand.html" title="Abstract base class for commands in the Command pattern.">Command</a>.  <a href="classCommand.html#aea62c488b914842c63b67ef593dade27">More...</a><br /></td></tr>
 <tr class="separator:aea62c488b914842c63b67ef593dade27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa545a53d35818f9efb936daf3fa16c61"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.html#aa545a53d35818f9efb936daf3fa16c61">~Command</a> ()=default</td></tr>
 <tr class="separator:aa545a53d35818f9efb936daf3fa16c61"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -100,7 +104,10 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:aefb89941a5b2b0b0648cf7b98bb37762"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCommand.html#aefb89941a5b2b0b0648cf7b98bb37762">message</a></td></tr>
 <tr class="separator:aefb89941a5b2b0b0648cf7b98bb37762"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract base class for commands in the <a class="el" href="classCommand.html" title="Abstract base class for commands in the Command pattern.">Command</a> pattern. </p>
+<p>Encapsulates a request as an object, allowing parameterization and queuing of requests </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aea62c488b914842c63b67ef593dade27"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea62c488b914842c63b67ef593dade27">&#9670;&nbsp;</a></span>Command()</h2>
 
@@ -132,6 +139,20 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classCommand.html" title="Abstract base class for commands in the Command pattern.">Command</a>. </p>
+<p>Constructs a <a class="el" href="classCommand.html" title="Abstract base class for commands in the Command pattern.">Command</a> object.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">room</td><td>Pointer to the chat room </td></tr>
+    <tr><td class="paramname">user</td><td>Pointer to the user </td></tr>
+    <tr><td class="paramname">msg</td><td>The message string</td></tr>
+    <tr><td class="paramname">room</td><td>Pointer to the chat room </td></tr>
+    <tr><td class="paramname">user</td><td>Pointer to the user initiating the command </td></tr>
+    <tr><td class="paramname">msg</td><td>The message content </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
