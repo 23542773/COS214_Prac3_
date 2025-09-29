@@ -37,4 +37,24 @@ Flexibility -Each user type can have completely different send/receive behavior
 Cons:
 
 extensively - duplication risk- lot of code being duplicated if the users do thing the same way.
+
+
+---- choice pf Iterator ------
+reason: we implemented so we can iterate through all the chat history of different chat rooms.
+pro:
+
+keep the chatroom history encapuselated wihout getting expose.
+
+It easy to extenc.
+
+
+---- choice of design pattern ----
+state (behavioral design pattern)
+our system already  Mediator ,Iterator,Command,state is are behavior  because it consistent and strengthn the overall design because our system is very interation focu.
+
+ How does it positive contribut to the system ? how would it differ wihtout state,
+ You would have to have if and else and swicth statement inside the usersend and userreceive function to see if a user is online ,  Offline , or busy , 
+ state also makes the system more realistic
  
+ how does the state improve the extensivbility of the system ?
+ adding a new state only requires adding a new subclass of user state , no change to user requires.
