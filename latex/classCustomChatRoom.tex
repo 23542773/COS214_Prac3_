@@ -1,0 +1,183 @@
+\hypertarget{classCustomChatRoom}{}\doxysection{Custom\+Chat\+Room Class Reference}
+\label{classCustomChatRoom}\index{CustomChatRoom@{CustomChatRoom}}
+
+
+A customizable chat room with user-\/defined name.  
+
+
+
+
+{\ttfamily \#include $<$Pet\+Space.\+h$>$}
+
+
+
+Inheritance diagram for Custom\+Chat\+Room\+:
+% FIG 0
+
+
+Collaboration diagram for Custom\+Chat\+Room\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCustomChatRoom_ad48ffcd3a0a25b2c246a2c98f9cd0b9e}{Custom\+Chat\+Room}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classCustomChatRoom}{Custom\+Chat\+Room}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomChatRoom_a216037858c539271cad9bdcc9e82167d}{register\+User}} (\mbox{\hyperlink{classUser}{User}} $\ast$user) override
+\begin{DoxyCompactList}\small\item\em Registers a user with the custom chat room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomChatRoom_a2907354251157236ffa4456891657196}{remove\+User}} (\mbox{\hyperlink{classUser}{User}} $\ast$user) override
+\begin{DoxyCompactList}\small\item\em Removes a user from the custom chat room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomChatRoom_aa17c74fd32c935a3ec23281025e5b778}{send\+Message}} (const std\+::string \&message, \mbox{\hyperlink{classUser}{User}} $\ast$from\+User) override
+\begin{DoxyCompactList}\small\item\em Sends a message to all users in the custom chat room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomChatRoom_af62b00461009b20066f3476f45d1e55c}{save\+Message}} (const std\+::string \&message, \mbox{\hyperlink{classUser}{User}} $\ast$from\+User) override
+\begin{DoxyCompactList}\small\item\em Saves a message to the custom chat room\textquotesingle{}s history. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classIterator}{Iterator}} $\ast$ \mbox{\hyperlink{classCustomChatRoom_a8330cde1fcf4fff0a0217ac240034d99}{create\+Iterator}} () override
+\begin{DoxyCompactList}\small\item\em Creates an iterator for the custom chat room\textquotesingle{}s history. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCustomChatRoom_ae3e65be2452ffe9fb3cf4f9361387ba4}{get\+Room\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Gets the room\textquotesingle{}s name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A customizable chat room with user-\/defined name. 
+
+Allows admins to create themed chat rooms with custom names 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCustomChatRoom_ad48ffcd3a0a25b2c246a2c98f9cd0b9e}\label{classCustomChatRoom_ad48ffcd3a0a25b2c246a2c98f9cd0b9e}} 
+\index{CustomChatRoom@{CustomChatRoom}!CustomChatRoom@{CustomChatRoom}}
+\index{CustomChatRoom@{CustomChatRoom}!CustomChatRoom@{CustomChatRoom}}
+\doxysubsubsection{\texorpdfstring{CustomChatRoom()}{CustomChatRoom()}}
+{\footnotesize\ttfamily Custom\+Chat\+Room\+::\+Custom\+Chat\+Room (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classCustomChatRoom}{Custom\+Chat\+Room}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name for the custom room\\
+\hline
+{\em name} & The custom name for the room \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCustomChatRoom_a8330cde1fcf4fff0a0217ac240034d99}\label{classCustomChatRoom_a8330cde1fcf4fff0a0217ac240034d99}} 
+\index{CustomChatRoom@{CustomChatRoom}!createIterator@{createIterator}}
+\index{createIterator@{createIterator}!CustomChatRoom@{CustomChatRoom}}
+\doxysubsubsection{\texorpdfstring{createIterator()}{createIterator()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIterator}{Iterator}} $\ast$ Custom\+Chat\+Room\+::create\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates an iterator for the custom chat room\textquotesingle{}s history. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to a new \mbox{\hyperlink{classChatHistoryIterator}{Chat\+History\+Iterator}} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classChatRoom_a69b77529a5bb7ffe78f41608ec4ea0a1}{Chat\+Room}}.
+
+\mbox{\Hypertarget{classCustomChatRoom_ae3e65be2452ffe9fb3cf4f9361387ba4}\label{classCustomChatRoom_ae3e65be2452ffe9fb3cf4f9361387ba4}} 
+\index{CustomChatRoom@{CustomChatRoom}!getRoomName@{getRoomName}}
+\index{getRoomName@{getRoomName}!CustomChatRoom@{CustomChatRoom}}
+\doxysubsubsection{\texorpdfstring{getRoomName()}{getRoomName()}}
+{\footnotesize\ttfamily std\+::string Custom\+Chat\+Room\+::get\+Room\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the room\textquotesingle{}s name. 
+
+\begin{DoxyReturn}{Returns}
+The room name
+
+The custom room name string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomChatRoom_a216037858c539271cad9bdcc9e82167d}\label{classCustomChatRoom_a216037858c539271cad9bdcc9e82167d}} 
+\index{CustomChatRoom@{CustomChatRoom}!registerUser@{registerUser}}
+\index{registerUser@{registerUser}!CustomChatRoom@{CustomChatRoom}}
+\doxysubsubsection{\texorpdfstring{registerUser()}{registerUser()}}
+{\footnotesize\ttfamily void Custom\+Chat\+Room\+::register\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Registers a user with the custom chat room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Pointer to the user to register\\
+\hline
+\end{DoxyParams}
+Prevents duplicate registrations 
+
+Implements \mbox{\hyperlink{classChatRoom_ad7d4fe63622992ee74913a0c04c1b840}{Chat\+Room}}.
+
+\mbox{\Hypertarget{classCustomChatRoom_a2907354251157236ffa4456891657196}\label{classCustomChatRoom_a2907354251157236ffa4456891657196}} 
+\index{CustomChatRoom@{CustomChatRoom}!removeUser@{removeUser}}
+\index{removeUser@{removeUser}!CustomChatRoom@{CustomChatRoom}}
+\doxysubsubsection{\texorpdfstring{removeUser()}{removeUser()}}
+{\footnotesize\ttfamily void Custom\+Chat\+Room\+::remove\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Removes a user from the custom chat room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Pointer to the user to remove \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classChatRoom_a01c7ea1d26aefc886c0f8b2bc63ade28}{Chat\+Room}}.
+
+\mbox{\Hypertarget{classCustomChatRoom_af62b00461009b20066f3476f45d1e55c}\label{classCustomChatRoom_af62b00461009b20066f3476f45d1e55c}} 
+\index{CustomChatRoom@{CustomChatRoom}!saveMessage@{saveMessage}}
+\index{saveMessage@{saveMessage}!CustomChatRoom@{CustomChatRoom}}
+\doxysubsubsection{\texorpdfstring{saveMessage()}{saveMessage()}}
+{\footnotesize\ttfamily void Custom\+Chat\+Room\+::save\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{from\+User }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Saves a message to the custom chat room\textquotesingle{}s history. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message content \\
+\hline
+{\em from\+User} & Pointer to the user who sent the message \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classChatRoom_aa96b9ab9402fa28611a6c3277b2a17fb}{Chat\+Room}}.
+
+\mbox{\Hypertarget{classCustomChatRoom_aa17c74fd32c935a3ec23281025e5b778}\label{classCustomChatRoom_aa17c74fd32c935a3ec23281025e5b778}} 
+\index{CustomChatRoom@{CustomChatRoom}!sendMessage@{sendMessage}}
+\index{sendMessage@{sendMessage}!CustomChatRoom@{CustomChatRoom}}
+\doxysubsubsection{\texorpdfstring{sendMessage()}{sendMessage()}}
+{\footnotesize\ttfamily void Custom\+Chat\+Room\+::send\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{from\+User }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sends a message to all users in the custom chat room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message content \\
+\hline
+{\em from\+User} & Pointer to the user sending the message\\
+\hline
+\end{DoxyParams}
+Message is delivered to all users except the sender 
+
+Implements \mbox{\hyperlink{classChatRoom_a25a28b991d4b8aa3e2e81481d1690619}{Chat\+Room}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PetSpace_8h}{Pet\+Space.\+h}}\item 
+\mbox{\hyperlink{PetSpace_8cpp}{Pet\+Space.\+cpp}}\end{DoxyCompactItemize}

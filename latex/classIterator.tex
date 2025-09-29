@@ -1,0 +1,96 @@
+\hypertarget{classIterator}{}\doxysection{Iterator Class Reference}
+\label{classIterator}\index{Iterator@{Iterator}}
+
+
+Abstract iterator interface for traversing collections.  
+
+
+
+
+{\ttfamily \#include $<$Pet\+Space.\+h$>$}
+
+
+
+Inheritance diagram for Iterator\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classIterator_a4c28388b53ec9c8a502aeccf13295899}{$\sim$\+Iterator}} ()=default
+\item 
+virtual bool \mbox{\hyperlink{classIterator_ac3a1f5cb124b2b89e4cc41900ffd83f6}{has\+Next}} ()=0
+\begin{DoxyCompactList}\small\item\em Checks if there are more elements to iterate. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classIterator_a588d1e1bb213b4549d2f37dab5230481}{next}} ()=0
+\begin{DoxyCompactList}\small\item\em Returns the next element in the collection. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classIterator_a32850eb6f82277c063362f18ac36affe}{reset}} ()=0
+\begin{DoxyCompactList}\small\item\em Resets the iterator to the beginning. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract iterator interface for traversing collections. 
+
+Provides a way to access elements of an aggregate object sequentially without exposing its underlying representation 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classIterator_a4c28388b53ec9c8a502aeccf13295899}\label{classIterator_a4c28388b53ec9c8a502aeccf13295899}} 
+\index{Iterator@{Iterator}!````~Iterator@{$\sim$Iterator}}
+\index{````~Iterator@{$\sim$Iterator}!Iterator@{Iterator}}
+\doxysubsubsection{\texorpdfstring{$\sim$Iterator()}{~Iterator()}}
+{\footnotesize\ttfamily virtual Iterator\+::$\sim$\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIterator_ac3a1f5cb124b2b89e4cc41900ffd83f6}\label{classIterator_ac3a1f5cb124b2b89e4cc41900ffd83f6}} 
+\index{Iterator@{Iterator}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!Iterator@{Iterator}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}}
+{\footnotesize\ttfamily virtual bool Iterator\+::has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Checks if there are more elements to iterate. 
+
+\begin{DoxyReturn}{Returns}
+true if more elements exist, false otherwise 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classChatHistoryIterator_a89ac181b508ba35a8bd61d84242fd860}{Chat\+History\+Iterator}}.
+
+\mbox{\Hypertarget{classIterator_a588d1e1bb213b4549d2f37dab5230481}\label{classIterator_a588d1e1bb213b4549d2f37dab5230481}} 
+\index{Iterator@{Iterator}!next@{next}}
+\index{next@{next}!Iterator@{Iterator}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily virtual std\+::string Iterator\+::next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the next element in the collection. 
+
+\begin{DoxyReturn}{Returns}
+The next string element 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classChatHistoryIterator_add4af2837bf1bc07e8ed81424cd719a9}{Chat\+History\+Iterator}}.
+
+\mbox{\Hypertarget{classIterator_a32850eb6f82277c063362f18ac36affe}\label{classIterator_a32850eb6f82277c063362f18ac36affe}} 
+\index{Iterator@{Iterator}!reset@{reset}}
+\index{reset@{reset}!Iterator@{Iterator}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily virtual void Iterator\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Resets the iterator to the beginning. 
+
+
+
+Implemented in \mbox{\hyperlink{classChatHistoryIterator_a853ecc9b44441366b123eb2ab8b85495}{Chat\+History\+Iterator}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PetSpace_8h}{Pet\+Space.\+h}}\end{DoxyCompactItemize}

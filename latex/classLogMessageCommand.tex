@@ -1,0 +1,81 @@
+\hypertarget{classLogMessageCommand}{}\doxysection{Log\+Message\+Command Class Reference}
+\label{classLogMessageCommand}\index{LogMessageCommand@{LogMessageCommand}}
+
+
+Concrete command for logging messages to chat history.  
+
+
+
+
+{\ttfamily \#include $<$Pet\+Space.\+h$>$}
+
+
+
+Inheritance diagram for Log\+Message\+Command\+:
+% FIG 0
+
+
+Collaboration diagram for Log\+Message\+Command\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLogMessageCommand_a06f057a5b86b0913b2688a594e852a53}{Log\+Message\+Command}} (\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$room, \mbox{\hyperlink{classUser}{User}} $\ast$user, const std\+::string \&msg)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classLogMessageCommand}{Log\+Message\+Command}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogMessageCommand_a1522ccb9ad6916f76ef6fe720ffbdb8c}{execute}} () override
+\begin{DoxyCompactList}\small\item\em Executes the log message command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Concrete command for logging messages to chat history. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLogMessageCommand_a06f057a5b86b0913b2688a594e852a53}\label{classLogMessageCommand_a06f057a5b86b0913b2688a594e852a53}} 
+\index{LogMessageCommand@{LogMessageCommand}!LogMessageCommand@{LogMessageCommand}}
+\index{LogMessageCommand@{LogMessageCommand}!LogMessageCommand@{LogMessageCommand}}
+\doxysubsubsection{\texorpdfstring{LogMessageCommand()}{LogMessageCommand()}}
+{\footnotesize\ttfamily Log\+Message\+Command\+::\+Log\+Message\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classChatRoom}{Chat\+Room}} $\ast$}]{room,  }\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user,  }\item[{const std\+::string \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classLogMessageCommand}{Log\+Message\+Command}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room} & Pointer to the chat room \\
+\hline
+{\em user} & Pointer to the user \\
+\hline
+{\em msg} & The message string\\
+\hline
+{\em room} & Pointer to the chat room \\
+\hline
+{\em user} & Pointer to the user whose message is being logged \\
+\hline
+{\em msg} & The message to log \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLogMessageCommand_a1522ccb9ad6916f76ef6fe720ffbdb8c}\label{classLogMessageCommand_a1522ccb9ad6916f76ef6fe720ffbdb8c}} 
+\index{LogMessageCommand@{LogMessageCommand}!execute@{execute}}
+\index{execute@{execute}!LogMessageCommand@{LogMessageCommand}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void Log\+Message\+Command\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executes the log message command. 
+
+Saves the message to the chat room\textquotesingle{}s history 
+
+Implements \mbox{\hyperlink{classCommand_a6fd7d9bd8df8bfc881e4d6c7cd1878b7}{Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PetSpace_8h}{Pet\+Space.\+h}}\item 
+\mbox{\hyperlink{PetSpace_8cpp}{Pet\+Space.\+cpp}}\end{DoxyCompactItemize}
