@@ -58,3 +58,9 @@ our system already  Mediator ,Iterator,Command,state is are behavior  because it
  
  how does the state improve the extensivbility of the system ?
  adding a new state only requires adding a new subclass of user state , no change to user requires.
+
+ We integrated the State pattern into the User class. Each User maintains a reference to a UserState, such as OnlineState, OfflineState, or BusyState. 
+ The pattern allows a user’s behavior to change at runtime depending on their state. For example, an offline user may not receive messages, 
+ while a busy user may auto-reply. The intent of the State pattern is therefore clearly demonstrated: behavior changes without conditional logic cluttering the User class.
+  Since State is a behavioural pattern, it complements the other behavioural patterns in the system (Mediator, Command, Iterator).
+   It improves extensibility because new states (e.g., DoNotDisturbState, InvisibleState) can be added without modifying existing code. This makes the design flexible, realistic, and easy to extend.
