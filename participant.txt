@@ -28,3 +28,13 @@ client-
 
 
 1user can be in multiple chatroom
+
+
+//abstract class
+Pro:
+Flexibility -Each user type can have completely different send/receive behavior
+
+Cons:
+
+extensively - duplication risk- lot of code being duplicated if the users do thing the same way.
+ 

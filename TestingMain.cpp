@@ -119,6 +119,8 @@ void testMediatorPattern() {
     user2->send("Hello from Dogorithm!", dogorithmRoom);
     user3->send("Woof woof!", dogorithmRoom);
     
+
+    //constraint
     std::cout << "\n--- Testing Multi-room User ---" << std::endl;
     user2->send("I'm in both rooms!", ctrlCatRoom);
     user2->send("Speaking in Dogorithm now", dogorithmRoom);
